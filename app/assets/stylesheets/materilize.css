@@ -2121,15 +2121,15 @@ ul.staggered-list li {
 /*********************
   Media Query Classes
 **********************/
-@media only screen and (max-width : 600px) {
+@media only screen and (max-width: 600px) {
   .hide-on-small-only, .hide-on-small-and-down {
     display: none !important; } }
 
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width: 992px) {
   .hide-on-med-and-down {
     display: none !important; } }
 
-@media only screen and (min-width : 601px) {
+@media only screen and (min-width: 601px) {
   .hide-on-med-and-up {
     display: none !important; } }
 
@@ -2137,11 +2137,11 @@ ul.staggered-list li {
   .hide-on-med-only {
     display: none !important; } }
 
-@media only screen and (min-width : 993px) {
+@media only screen and (min-width: 993px) {
   .hide-on-large-only {
     display: none !important; } }
 
-@media only screen and (min-width : 993px) {
+@media only screen and (min-width: 993px) {
   .show-on-large {
     display: initial !important; } }
 
@@ -2149,19 +2149,19 @@ ul.staggered-list li {
   .show-on-medium {
     display: initial !important; } }
 
-@media only screen and (max-width : 600px) {
+@media only screen and (max-width: 600px) {
   .show-on-small {
     display: initial !important; } }
 
-@media only screen and (min-width : 601px) {
+@media only screen and (min-width: 601px) {
   .show-on-medium-and-up {
     display: initial !important; } }
 
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width: 992px) {
   .show-on-medium-and-down {
     display: initial !important; } }
 
-@media only screen and (max-width : 600px) {
+@media only screen and (max-width: 600px) {
   .center-on-small-only {
     text-align: center; } }
 
