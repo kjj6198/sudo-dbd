@@ -1,0 +1,22 @@
+<div class="row">
+  <%= form_for @restaurant, :url => {:controller => 'restaurants', :action => 'create'} do |f| %>
+    <div class="col s12 m12 l12">
+      <div class="row">
+        <%= f.label :name, "名稱" %>
+    	  <%= f.text_field :name %>
+        <br>
+        <%= f.label :phone, "電話" %>
+        <%= f.text_field :phone %>
+        <br>
+		
+		<%= f.label :restaurant_picture, "上傳菜單" %>
+		<%= f.file_field :restaurant_picture %>
+		<%= f.hidden_field :restaurant_picture_cache %>
+        
+      </div>
+
+    </div>
+    <%= f.submit "送出", class:"btn" %>
+
+  <% end %>
+</div>

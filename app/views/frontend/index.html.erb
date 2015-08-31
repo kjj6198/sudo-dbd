@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col s12 m12 l12">
+  	<h2>Sudo Ding Ben Dong</h2>
+  	<a  class="btn" href="<%= new_menu_path %>">發起訂餐</a>
+  	<a class="btn" href="<%= new_restaurant_path %>">新增餐廳</a>
+    <a href="<%= restaurants_path %>">餐廳列表</a>
+  </div>
+</div>
+
+
+<div class="row">
+  <table class="striped">
+  	<thead>
+  	  <tr>
+  	  	<td>餐廳名稱</td>
+  	  	<td>開始時間</td>
+  	  	<td>剩餘</td>
+  	  	<td>連結</td>
+  	  </tr>
+  	</thead>
+  	<tbody>
+    <!-- todo 動態倒數 -->
+  	<% @menus.each do |menu| %>
+  	  <tr>
+  	  	<td><%= menu.name %></td>
+  	  	<td><%= menu.created_at %></td>
+  	  	<td>15分</td>
+  	  	<td><%= link_to '我要點餐', menu_path(menu) %></td>
+  	  </tr>
+  	<% end %>
+  	</tbody>
+  </table>
+</div>
+
+

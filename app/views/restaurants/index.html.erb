@@ -1,0 +1,13 @@
+<div class="row">
+<h2>餐廳列表</h2>
+
+<ul class="collection">
+	<% @restaurants.each do |rest| %>
+    <li class="collection-item avatar">
+      <img src="<%= rest.restaurant_picture %>" alt="" class="circle">
+      <span class="title"><%= rest.name %></span>
+      
+      <a href="#!" class="secondary-content"><i class="material-icons">good</i></a>
+    <% end %>
+</ul>
+</div>

@@ -1,0 +1,18 @@
+<div class="row">
+  <%= form_for @menu, :url => {:controller => 'menus', :action => 'create'} do |f| %>
+    <div class="col s12 m12 l12">
+      <div class="row">
+        <%= f.label :name, "名稱" %>
+    	  <%= f.text_field :name %>
+        <br>
+        <%= f.label :start_time, "開始時間" %>
+        <%= datetime_field(:menus, :start_time) %>
+        <br>
+        <%= f.label :end_time, "結束時間" %>
+        <%= datetime_field(:menus, :end_time) %>   
+      </div>
+    </div>
+    <%= f.submit "送出", class:"btn" %>
+
+  <% end %>
+</div>

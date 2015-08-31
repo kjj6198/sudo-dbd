@@ -1,0 +1,19 @@
+<!-- todo: 設定餐廳資訊 -->
+
+
+<h2>dasdfd</h2>
+<table class="striped">
+  <thead>
+  	<tr>
+  		<td>姓名</td>
+  		<td>菜名</td>
+  		<td>價格</td>
+  		<td>是否結清</td>
+  	</tr>
+  </thead>
+  <tbody>
+    <%= render @menu.orders %>
+  </tbody>
+</table>
+
+<%= render 'partial/order_form' %>
