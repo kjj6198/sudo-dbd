@@ -1,11 +1,11 @@
 <!-- todo: 設定餐廳資訊 -->
 
-
+<%= @restaurant %>
 <h2>dasdfd</h2>
 <% if @restaurant.present? %>
-<%= image_tag @restaurant.restaurant_picture %>
-<% end %>
 
+<% end %>
+<%= image_tag Restaurant.first.restaurant_picture %>
 <table class="striped">
   <thead>
   	<tr>
