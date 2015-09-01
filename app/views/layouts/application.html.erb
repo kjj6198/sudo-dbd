@@ -7,6 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+  <nav>
+  <ul>
+  <% if !user_signed_in? %>
+    <li><%= link_to '註冊', new_user_registration_path %></li>
+    <li><%= link_to '登入 ', new_user_session_path %></li>
+  <% else %>
+  	<li><%= link_to '登出', user_session_path, method: :delete %></li>
+  <% end %>
+  </ul>
+  </nav>
+</header>
 <div class="container">
   <%= yield %>	
 </div>

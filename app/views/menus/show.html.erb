@@ -2,6 +2,10 @@
 
 
 <h2>dasdfd</h2>
+<% if @restaurant.present? %>
+<%= image_tag @restaurant.restaurant_picture %>
+<% end %>
+
 <table class="striped">
   <thead>
   	<tr>

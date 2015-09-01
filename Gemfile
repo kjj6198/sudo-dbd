@@ -18,7 +18,7 @@ gem 'rolify'
 gem 'mini_magick'
 gem "font-awesome-rails"
 gem 'ckeditor'
-gem 'rack-livereload', :group => :development
+
 
 group :development, :test do
   gem 'byebug'

@@ -11,24 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831091224) do
+ActiveRecord::Schema.define(version: 20150901034517) do
 
   create_table "menus", force: :cascade do |t|
     t.string   "name"
     t.time     "start_time"
     t.time     "end_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "status",          default: true
+    t.integer  "users_id"
+    t.string   "restaurant_name"
+    t.integer  "restaurants_id"
   end
+
+  add_index "menus", ["restaurants_id"], name: "index_menus_on_restaurants_id"
+  add_index "menus", ["users_id"], name: "index_menus_on_users_id"
 
   create_table "orders", force: :cascade do |t|
     t.string   "name"
     t.string   "food_name"
     t.integer  "price"
-    t.boolean  "has_paid"
-    t.string   "owner"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "has_paid",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "menu_id"
   end
 
@@ -61,6 +67,7 @@ ActiveRecord::Schema.define(version: 20150831091224) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,15 +1,27 @@
 <div class="row">
+  <% if @restaurant.present? %>
+  <%= image_tag @restaurant.restaurant_picture %>
+  <% end %>
+</div>
+<div class="row">
+  <!-- todo 加入餐廳資訊 -->
   <%= form_for @menu, :url => {:controller => 'menus', :action => 'create'} do |f| %>
     <div class="col s12 m12 l12">
       <div class="row">
-        <%= f.label :name, "名稱" %>
+        <%= f.label :name, "發起人姓名" %>
     	  <%= f.text_field :name %>
         <br>
-        <%= f.label :start_time, "開始時間" %>
-        <%= datetime_field(:menus, :start_time) %>
+        <%= f.label :restaurant_name, "餐廳" %>
+        <%= f.text_field :restaurant_name %>
         <br>
-        <%= f.label :end_time, "結束時間" %>
-        <%= datetime_field(:menus, :end_time) %>   
+        <%= f.label :start_time, "開始時間" %>
+        <%= datetime_field(:menus, Time.now) %>
+        <br>
+        <%= f.label :end_time, "開放時間" %>
+        <%= datetime_field(:menus, :end_time) %>
+      </div>
+      <div>
+      <%= f.collection_select(:restaurants_id, Restaurant.all, :id, :name) %>
       </div>
     </div>
     <%= f.submit "送出", class:"btn" %>

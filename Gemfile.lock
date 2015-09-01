@@ -107,8 +107,6 @@ GEM
       mimemagic (= 0.3.0)
     pg (0.18.2)
     rack (1.6.4)
-    rack-livereload (0.3.16)
-      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.1)
@@ -209,7 +207,6 @@ DEPENDENCIES
   mini_magick
   paperclip (~> 4.3.0)
   pg
-  rack-livereload
   rails (= 4.2.1)
   rolify
   rspec-rails

@@ -13,8 +13,9 @@
   	<thead>
   	  <tr>
   	  	<td>餐廳名稱</td>
+        <td>發起人</td>
   	  	<td>開始時間</td>
-  	  	<td>剩餘</td>
+  	  	<td>剩餘時間</td>
   	  	<td>連結</td>
   	  </tr>
   	</thead>
@@ -22,9 +23,12 @@
     <!-- todo 動態倒數 -->
   	<% @menus.each do |menu| %>
   	  <tr>
-  	  	<td><%= menu.name %></td>
-  	  	<td><%= menu.created_at %></td>
-  	  	<td>15分</td>
+      <!-- todo 加入餐廳名稱 -->
+      
+  	  	<td>restaurant</td>
+        <td><%= menu.name %></td>
+  	  	<td><%= time_ago_in_words(menu.created_at) %></td>
+  	  	<td><%= 123 %></td>
   	  	<td><%= link_to '我要點餐', menu_path(menu) %></td>
   	  </tr>
   	<% end %>
