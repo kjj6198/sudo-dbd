@@ -15,10 +15,17 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-  	@restaurant = Restaurant.new(params.require(:restaurant).permit(:name,:phone, :restaurant_picture, :restaurant_picture_cache))
-  	@restaurant.save
+  	@restaurant = Restaurant.new(params.require(:restaurant).permit(:name,:phone, :url))
 
-  	redirect_to root_path
+  	if(@restaurant.save)
+      @restaurant.save
+      redirect_to root_path, :notice => '成功新增餐廳'
+    else
+      redirect_to new_restaurant_path(@restaurant), :notice => '新增失敗，請確認欄位'
+    end
+
+
+  	
   end
 
 
