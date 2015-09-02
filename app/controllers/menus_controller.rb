@@ -19,7 +19,8 @@ class MenusController < ApplicationController
 
   def create
     @menu = @user.menus.new(menu_param)
-  	@menu.save
+  	
+    @menu.save
 
     # todo 訊息統一管理 放在哪？？？
   	redirect_to root_path, :notice => "訂餐成功!!"
@@ -28,7 +29,7 @@ class MenusController < ApplicationController
   private
 
   def menu_param
-    params[:menu].permit(:name,:start_time, :end_time, :restaurants_id)
+    params[:menu].permit(:name,:start_time, :end_time, :restaurant_id)
   end
 
   def set_current_user

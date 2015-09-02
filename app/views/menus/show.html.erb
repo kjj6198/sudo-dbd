@@ -1,5 +1,7 @@
 <!-- todo: 設定餐廳資訊 -->
-
+<% if @restaurant.present? %>
+  <%= image_tag @restaurant.restaurant_picture %>
+<% end %>
 <table class="striped">
   <thead>
   	<tr>

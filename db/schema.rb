@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902025027) do
+ActiveRecord::Schema.define(version: 20150902042420) do
 
   create_table "menus", force: :cascade do |t|
     t.string   "name"
@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 20150902025027) do
     t.boolean  "status",          default: true
     t.integer  "user_id"
     t.string   "restaurant_name"
-    t.integer  "restaurants_id"
+    t.integer  "restaurant_id"
   end
 
-  add_index "menus", ["restaurants_id"], name: "index_menus_on_restaurants_id"
+  add_index "menus", ["restaurant_id"], name: "index_menus_on_restaurant_id"
   add_index "menus", ["user_id"], name: "index_menus_on_user_id"
 
   create_table "orders", force: :cascade do |t|

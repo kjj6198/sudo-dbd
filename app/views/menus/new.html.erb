@@ -9,7 +9,7 @@
     <div class="col s12 m12 l12">
       <div class="row">
         <div class="input-field">
-          <%= f.collection_select(:restaurants_id, Restaurant.all, :id, :name) %>
+          <%= f.collection_select(:restaurant_id, Restaurant.all, :id, :name) %>
         </div>
         <!-- todo reactive 加入菜單圖片 -->
         <br>
@@ -29,7 +29,7 @@
 </div>
 
 <script>
-  $(document).ready(function() {
-    $('select').material_select();
-  });
+  // $(document).ready(function() {
+  //   $('select').material_select();
+  // });
 </script>
