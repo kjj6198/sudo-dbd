@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   validates :email, format: {
   	with: /\A([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})\z/
   }
-  has_many :menus
+  has_one :menu
   
 end
