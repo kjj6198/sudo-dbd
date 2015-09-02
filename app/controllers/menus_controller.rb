@@ -1,6 +1,7 @@
 class MenusController < ApplicationController
   before_action :authenticate_user!
   before_action :set_current_user
+ 
   def index
     	
   end
