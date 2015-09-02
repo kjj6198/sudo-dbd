@@ -1,3 +1,15 @@
 // Place all the styles related to the frontend controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+  font-size: 22px!important;
+}
+
+.logo-box {
+	width: 100%;
+
+	img {
+	  max-width: 100%;
+
+	}
+}

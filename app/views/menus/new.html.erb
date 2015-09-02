@@ -5,14 +5,13 @@
 </div>
 <div class="row">
   <!-- todo 加入餐廳資訊 -->
-  <%= form_for @menu, :url => {:controller => 'menus', :action => 'create'} do |f| %>
+  <%= form_for @menu, :url => {:controller => 'menus', :action => 'create' } do |f| %>
     <div class="col s12 m12 l12">
       <div class="row">
-        <%= f.label :name, "發起人姓名" %>
-    	  <%= f.text_field :name %>
-        <br>
-        <%= f.label :restaurant_name, "餐廳" %>
-        <%= f.text_field :restaurant_name %>
+        <div class="input-field">
+          <%= f.collection_select(:restaurant_id, Restaurant.all, :id, :name) %>
+        </div>
+        <!-- todo reactive 加入菜單圖片 -->
         <br>
         <%= f.label :start_time, "開始時間" %>
         <%= datetime_field(:menus, Time.now) %>
@@ -21,10 +20,16 @@
         <%= datetime_field(:menus, :end_time) %>
       </div>
       <div>
-      <%= f.collection_select(:restaurants_id, Restaurant.all, :id, :name) %>
+      
       </div>
     </div>
-    <%= f.submit "送出", class:"btn" %>
+    <%= f.submit "送出", class:"btn", :method => 'POST'  %>
 
   <% end %>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>

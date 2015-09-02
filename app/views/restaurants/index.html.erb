@@ -1,16 +1,21 @@
 <div class="row">
 <h2>餐廳列表</h2>
-<ul class="collection">
-	<% @restaurants.each do |rest| %>
-    <li class="collection-item avatar">
-      <img src="<%= rest.restaurant_picture %>" alt="" class="circle">
-      <span class="title"><%= rest.name %></span>
-      
-      <a href="#!" class="secondary-content"><i class="material-icons">good</i></a>
-    <% end %>
-</ul>
+<% @restaurants.each do |rest| %>
+<div class="col s12 m6 l4">
+  <div class="card">
+  	<div class="card-image">
+  		<img src="<%= rest.restaurant_picture %>" alt="" class="circle">
+  		<span class="card-title"><%= rest.name %></span>
+  	</div>
+  	<div class="card-action">
+  	  <p>電話: <%= rest.phone %></p>
+  	  <%= link_to '詳細內容', restaurant_path(rest) %> 
+  	</div>
+  	
+  </div>
 </div>
-
+<% end %>
+</div>
 <%= content_for :javascripts do %>
 <%= javascript_include_tag 'bundle/restaurants_index_bundle'%>
 <% end %>

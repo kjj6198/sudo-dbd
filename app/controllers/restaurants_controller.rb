@@ -9,6 +9,11 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
   end
 
+  def show
+    @restaurant = Restaurant.find(params[:id])
+    
+  end
+
   def create
   	@restaurant = Restaurant.new(params.require(:restaurant).permit(:name,:phone, :restaurant_picture, :restaurant_picture_cache))
   	@restaurant.save

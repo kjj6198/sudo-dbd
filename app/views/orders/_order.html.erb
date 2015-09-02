@@ -2,10 +2,10 @@
 <tr>
   <td><%= order.name %></td>
 	<td><%= order.food_name %></td>
-	<td><%= order.price %></td>
+	<td data-price=""><%= order.price %></td>
 	<%  if order.has_paid?(order) %>
-	<td data-status="<%= order.has_paid %>">已經繳費</td>
+	  <td data-status="<%= order.has_paid %>">已經繳費</td>
 	<% else %>
-	<td data-status="<%= order.has_paid %>">尚未繳費</td>
+	  <td data-status="<%= order.has_paid %>">尚未繳費</td>
 	<% end %>
 </tr>
