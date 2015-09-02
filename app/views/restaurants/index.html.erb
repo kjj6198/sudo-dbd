@@ -11,3 +11,7 @@
     <% end %>
 </ul>
 </div>
+
+<%= content_for :javascripts do %>
+<%= javascript_include_tag 'bundle/restaurants_index_bundle'%>
+<% end %>

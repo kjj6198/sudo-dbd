@@ -1,0 +1,29 @@
+{
+  "name": "SDBD",
+  "version": "1.0.0",
+  "description": "Ding Ben Dong Rock",
+  "main": "webpack.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kjj6198/sudo-dbd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kjj6198/sudo-dbd/issues"
+  },
+  "homepage": "https://github.com/kjj6198/sudo-dbd",
+  "dependencies": {
+    "rx": "^3.1.2"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "webpack": "^1.12.0"
+  }
+}
