@@ -10,9 +10,9 @@
 </div>
 
 <div class="row">
-  <div class="col s12 m6 l4"><a  class="dbd_button" href="<%= new_menu_path %>">發起訂餐</a></div>
-  <div class="col s12 m6 l4"><a class="dbd_button" href="<%= new_restaurant_path %>">新增餐廳</a></div>
-  <div class="col s12 m6 l4"><a class="dbd_button" href="<%= restaurants_path %>">餐廳列表</a></div>
+  <div class="col s12 m6 l4"><a  class="dbd_button" href="<%= new_menu_path %>"><i class="dbd_icon-pencil"></i>發起訂餐</a></div>
+  <div class="col s12 m6 l4"><a class="dbd_button" href="<%= new_restaurant_path %>"><i class="dbd_icon-restaurant"></i>新增餐廳</a></div>
+  <div class="col s12 m6 l4"><a class="dbd_button" href="<%= restaurants_path %>"><i class="dbd_icon-orderlist"></i>餐廳列表</a></div>
   
       
       
@@ -38,9 +38,8 @@
   	<% @menus.each do |menu| %>
   	  <tr>
       <!-- todo 加入餐廳名稱 -->
-        
-  	  	<td><%= menu.restaurant.name %></td>
         <td><%= menu.user.email %></td>
+        <td><%= menu.restaurant.name %></td>
   	  	<td><%= time_ago_in_words(menu.created_at) %></td>
   	  	<td data-time="<%= menu.end_time %>">1</td>
   	  	<td><%= link_to '我要點餐', menu_path(menu) %></td>

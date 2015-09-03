@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'Sudo-Ding-Ben-Don';
-  src:url('fonts/Sudo-Ding-Ben-Don.eot?-5efh2c');
-  src:url('fonts/Sudo-Ding-Ben-Don.eot?#iefix-5efh2c') format('embedded-opentype'),
-    url('fonts/Sudo-Ding-Ben-Don.ttf?-5efh2c') format('truetype'),
-    url('fonts/Sudo-Ding-Ben-Don.woff?-5efh2c') format('woff'),
-    url('fonts/Sudo-Ding-Ben-Don.svg?-5efh2c#icomoon') format('svg');
+  src:url('fonts/Sudo-Ding-Ben-Don.eot?cwdyey');
+  src:url('fonts/Sudo-Ding-Ben-Don.eot?#iefixcwdyey') format('embedded-opentype'),
+    url('fonts/Sudo-Ding-Ben-Don.ttf?cwdyey') format('truetype'),
+    url('fonts/Sudo-Ding-Ben-Don.woff?cwdyey') format('woff'),
+    url('fonts/Sudo-Ding-Ben-Don.svg?cwdyey#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -18,14 +18,14 @@ $icon_map: (
   star: "\e603",
   restaurant: "\e604",
   remove: "\e607",
-  pencil-large: "\e608",
-  pencil:"\e60e",
-  list: "\e614"
+  pencil:"\e601",
+  orderlist: "\e600"
 );
 
 @each $icon_name, $icon_content in $icon_map {
   .dbd_icon-#{$icon_name}:before {
     content: $icon_content;
+    color: #ff8a78;
   }
 }
 

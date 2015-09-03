@@ -2,7 +2,7 @@
 <% if @restaurant.present? %>
   
 <% end %>
-<table class="striped">
+<table class="dbd_table">
   <thead>
   	<tr>
   		<td>姓名</td>
@@ -14,20 +14,6 @@
   <tbody>
     <%= render @menu.orders %>
   </tbody>
-
-  <span>總計:</span><p data-sum=""></p>
 </table>
 
 <%= render 'partial/order_form' %>
-
-<script>
-  $('p[data-sum]').text(function(){
-    var $price = $('tr td[data-price]');
-    var sum = 0;
-
-    for(i = 0; i < $price.length; i++){
-      sum += parseInt($price[i].innerText); ;
-    }  
-    return sum;
-  });
-</script>
