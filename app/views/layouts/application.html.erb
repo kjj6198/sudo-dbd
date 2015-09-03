@@ -19,7 +19,6 @@
   </ul>
   </nav>
 </header>
-
   <%= render 'partial/navgation' %>
 
 <div class="fullpage clearfix">
@@ -27,6 +26,10 @@
     <%= yield %>	
   </div>
 </div>
+<% if Rails.env.development? %>
+  <%= debug params %> 
+<% end %>
 <%= yield :javascripts %>
+
 </body>
 </html>
