@@ -1,7 +1,9 @@
 # sudo dbd
 * [demo](http://sdbd.herokuapp.com/)
-
+:watch:
+為了解決公司內部訂餐問題而製作的app，主要是希望能夠讓訂餐流程簡化，訂餐者只要發起點餐就可以，由程式內部計算總額、截止時間等，節省大家的溝通成本。
 ### 目前進度
+
 * 上版(已經完成主視覺　LOGO)
 * 所有dbd的css全部在stylesheet/dbd 資料夾底下
 
