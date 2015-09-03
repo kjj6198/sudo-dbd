@@ -1,56 +1,53 @@
-
-<div class="row">
-  <div class="banner">
-    <div class="col s12 m12 l12 center">
-      <div class="logo-box center">
-        <%= image_tag 'logo.png' %>  
+<div id="front_end_index">
+  <div class="row">
+    <div class="banner">
+      <div class="col s12 m12 l12 center">
+        <div class="logo-box center">
+          <%= image_tag 'logo.png' %>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-<div class="row">
-  <div class="col s12 m6 l4"><a  class="dbd_button" href="<%= new_menu_path %>"><i class="dbd_icon-pencil"></i>發起訂餐</a></div>
-  <div class="col s12 m6 l4"><a class="dbd_button" href="<%= new_restaurant_path %>"><i class="dbd_icon-restaurant"></i>新增餐廳</a></div>
-  <div class="col s12 m6 l4"><a class="dbd_button" href="<%= restaurants_path %>"><i class="dbd_icon-orderlist"></i>餐廳列表</a></div>
-  
-      
-      
-</div>
-<div class="row">
-  
-</div>
-
-
-<div class="row">
-  <table class="dbd_table">
-  	<thead>
-  	  <tr>
-        <td>發起人</td>
-        <td>餐廳名稱</td>
-  	  	<td>開始時間</td>
-  	  	<td>剩餘時間</td>
-  	  	<td>連結</td>
-  	  </tr>
-  	</thead>
-  	<tbody>
-    <!-- todo 動態倒數 -->
-  	<% @menus.each do |menu| %>
-  	  <tr>
-      <!-- todo 加入餐廳名稱 -->
-        <td><%= menu.user.email %></td>
-        <td><%= menu.restaurant.name %></td>
-  	  	<td><%= time_ago_in_words(menu.created_at) %></td>
-  	  	<td data-time="<%= menu.end_time %>">1</td>
-  	  	<td><%= link_to '我要點餐', menu_path(menu) %></td>
-  	  </tr>
-  	<% end %>
-  	</tbody>
-  </table>
+  <div class="row">
+    <div class="col s12 m6 l4"><a  class="dbd_button" href="<%= new_menu_path %>"><i class="dbd_icon-pencil"></i>發起訂餐</a></div>
+    <div class="col s12 m6 l4"><a class="dbd_button" href="<%= new_restaurant_path %>"><i class="dbd_icon-restaurant"></i>新增餐廳</a></div>
+    <div class="col s12 m6 l4"><a class="dbd_button" href="<%= restaurants_path %>"><i class="dbd_icon-orderlist"></i>餐廳列表</a></div>
+    
+    
+    
+  </div>
+  <div class="row">
+    
+  </div>
+  <div class="row">
+    <table class="dbd_table">
+      <thead>
+        <tr>
+          <td>發起人</td>
+          <td>餐廳名稱</td>
+          <td>開始時間</td>
+          <td>剩餘時間</td>
+          <td>連結</td>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- todo 動態倒數 -->
+        <% @menus.each do |menu| %>
+        <tr>
+          <!-- todo 加入餐廳名稱 -->
+          <td><%= menu.user.email %></td>
+          <td><%= menu.restaurant.name %></td>
+          <td><%= time_ago_in_words(menu.created_at) %></td>
+          <td data-time="<%= menu.end_time %>">1</td>
+          <td><%= link_to '我要點餐', menu_path(menu) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 <script>
-  <% if notice != nil %>
-    Materialize.toast('<%= flash[:notice] %>', 4000,'rounded')
-  <% end %>
+<% if notice != nil %>
+Materialize.toast('<%= flash[:notice] %>', 4000,'rounded')
+<% end %>
 </script>
-
