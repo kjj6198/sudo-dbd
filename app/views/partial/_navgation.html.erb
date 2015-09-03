@@ -1,9 +1,14 @@
 <div class="dbd_nav">
-  <div class="dbd_logo">
-  	<%= image_tag 'logo.png' %>
-  </div>
-  <ul class="dbd_list">
-  	<li><a href="<%= %>">發起點餐</a></li>
-  	<li><a href="<%= %>">餐廳列表</a></li>
-  </ul>
+    <%= link_to root_path do %>
+    <div class="dbd_logo">
+        <%= image_tag 'logo.png' %>
+    </div>
+    <% end %>
+    
+    <ul class="dbd_list">
+        <li>
+        <%= link_to "發起點餐", new_menu_path %></li>
+        <li><%= link_to "餐廳列表", restaurants_path %>
+        </li>
+    </ul>
 </div>
