@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
-  before_action :authenticate_user!
-
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :find_restaurant, only: [:show]
   def index
     @restaurants = Restaurant.all  	
   end  
@@ -10,12 +10,11 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
     
   end
 
   def create
-  	@restaurant = Restaurant.new(params.require(:restaurant).permit(:name,:phone, :url))
+  	@restaurant = Restaurant.new(restaurant_params)
 
   	if(@restaurant.save)
       @restaurant.save
@@ -23,11 +22,17 @@ class RestaurantsController < ApplicationController
     else
       redirect_to new_restaurant_path(@restaurant), :notice => '新增失敗，請確認欄位'
     end
-
-
-  	
   end
 
+  private 
+
+  def restaurant_params
+    params.require(:restaurant).permit(:name,:phone, :url)
+  end
+
+  def find_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
 
 
 
