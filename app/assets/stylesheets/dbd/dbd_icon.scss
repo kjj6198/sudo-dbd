@@ -1,14 +1,13 @@
 @font-face {
-	font-family: 'Sudo-Ding-Ben-Don';
-	src:url('fonts/Sudo-Ding-Ben-Don.eot?-5efh2c');
-	src:url('fonts/Sudo-Ding-Ben-Don.eot?#iefix-5efh2c') format('embedded-opentype'),
-		url('fonts/Sudo-Ding-Ben-Don.ttf?-5efh2c') format('truetype'),
-		url('fonts/Sudo-Ding-Ben-Don.woff?-5efh2c') format('woff'),
-		url('fonts/Sudo-Ding-Ben-Don.svg?-5efh2c#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'Sudo-Ding-Ben-Don';
+  src:url('fonts/Sudo-Ding-Ben-Don.eot?-5efh2c');
+  src:url('fonts/Sudo-Ding-Ben-Don.eot?#iefix-5efh2c') format('embedded-opentype'),
+    url('fonts/Sudo-Ding-Ben-Don.ttf?-5efh2c') format('truetype'),
+    url('fonts/Sudo-Ding-Ben-Don.woff?-5efh2c') format('woff'),
+    url('fonts/Sudo-Ding-Ben-Don.svg?-5efh2c#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
-
 @for $i from 1 through 6 {
   .dbd_#{$i}x {
   	font-size: #{$i}em;
