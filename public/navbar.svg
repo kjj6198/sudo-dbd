@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1449px" height="97px" viewBox="0 0 1449 97" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch -->
+    <title>Group Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.683832908   0 0 0 0 0.683832908   0 0 0 0 0.683832908  0 0 0 0.35 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="sdbd" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Group-Copy" sketch:type="MSLayerGroup" transform="translate(0.000000, 2.000000)">
+            <rect id="Rectangle-13" fill="#FFBAB1" filter="url(#filter-1)" sketch:type="MSShapeGroup" x="5" y="0.601351351" width="1440" height="87.8803353"></rect>
+            <path d="M84.0351333,0.601351351 L129.63143,0.601351351 L92.2522199,88.3165116 L48,88.3165116 L84.0351333,0.601351351 Z" id="Path-1" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M5.68434189e-14,0.601351351 L45.5962964,0.601351351 L8.21708657,88.3165116 L6.59119905e-08,88.3165097 L5.68434189e-14,0.601351351 Z" id="Path-1-Copy-16" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M411.035133,0.601351351 L456.63143,0.601351351 L419.25222,88.3165116 L375,88.3165116 L411.035133,0.601351351 Z" id="Path-1-Copy-4" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M738.035133,0.601351351 L783.63143,0.601351351 L746.25222,88.3165116 L702,88.3165116 L738.035133,0.601351351 Z" id="Path-1-Copy-8" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M1072.03513,0.601351351 L1117.63143,0.601351351 L1080.25222,88.3165116 L1036,88.3165116 L1072.03513,0.601351351 Z" id="Path-1-Copy-12" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M166.035133,0.601351351 L211.63143,0.601351351 L174.25222,88.3165116 L130,88.3165116 L166.035133,0.601351351 Z" id="Path-1-Copy" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M493.035133,0.601351351 L538.63143,0.601351351 L501.25222,88.3165116 L457,88.3165116 L493.035133,0.601351351 Z" id="Path-1-Copy-5" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M1199.9862,0.62603399 L1300.29915,0.62603399 L1261.66031,88.2025682 L1161.63867,88.2025704 L1199.9862,0.62603399 Z" id="Path-77" fill="#FFBAB1" sketch:type="MSShapeGroup"></path>
+            <path d="M1303.24505,0.153372263 L1399.67083,0.153372263 L1363.76582,88.5227193 L1265.97219,88.5227189 L1303.24505,0.153372263 Z" id="Path-77-Copy" fill="#715251" sketch:type="MSShapeGroup"></path>
+            <path d="M819.035133,0.601351351 L864.63143,0.601351351 L827.25222,88.3165116 L783,88.3165116 L819.035133,0.601351351 Z" id="Path-1-Copy-9" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M1154.03513,0.601351351 L1199.63143,0.601351351 L1162.25222,88.3165116 L1118,88.3165116 L1154.03513,0.601351351 Z" id="Path-1-Copy-13" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M1295.63878,0.62603399 L1304.29915,0.62603399 L1266.63435,89.1585554 L1257.17078,89.1585534 L1295.63878,0.62603399 Z" id="Path-1-Copy-14" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M248.035133,0.601351351 L293.63143,0.601351351 L256.25222,88.3165116 L212,88.3165116 L248.035133,0.601351351 Z" id="Path-1-Copy-2" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M574.035133,0.601351351 L619.63143,0.601351351 L582.25222,88.3165116 L538,88.3165116 L574.035133,0.601351351 Z" id="Path-1-Copy-6" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M901.035133,0.601351351 L946.63143,0.601351351 L909.25222,88.3165116 L865,88.3165116 L901.035133,0.601351351 Z" id="Path-1-Copy-10" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M329.035133,0.601351351 L374.63143,0.601351351 L337.25222,88.3165116 L293,88.3165116 L329.035133,0.601351351 Z" id="Path-1-Copy-3" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M656.035133,0.601351351 L701.63143,0.601351351 L664.25222,88.3165116 L620,88.3165116 L656.035133,0.601351351 Z" id="Path-1-Copy-7" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M982.035133,0.601351351 L1027.63143,0.601351351 L990.25222,88.3165116 L946,88.3165116 L982.035133,0.601351351 Z" id="Path-1-Copy-11" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+            <path d="M1399.03513,0.601351351 L1444.63143,0.601351351 L1407.25222,88.3165116 L1363,88.3165116 L1399.03513,0.601351351 Z" id="Path-1-Copy-17" fill="#FF8D7D" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

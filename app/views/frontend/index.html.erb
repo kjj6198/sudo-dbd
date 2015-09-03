@@ -5,12 +5,17 @@
       <div class="logo-box center">
         <%= image_tag 'logo.png' %>  
       </div>
-      
-      <a  class="btn btn-large " href="<%= new_menu_path %>">發起訂餐</a>
-      <a class="btn btn-large" href="<%= new_restaurant_path %>">新增餐廳</a>
-      <a class="btn btn-large" href="<%= restaurants_path %>">餐廳列表</a>
     </div>
   </div>
+</div>
+
+<div class="row">
+  <div class="col s12 m6 l4"><a  class="dbd_button" href="<%= new_menu_path %>">發起訂餐</a></div>
+  <div class="col s12 m6 l4"><a class="dbd_button" href="<%= new_restaurant_path %>">新增餐廳</a></div>
+  <div class="col s12 m6 l4"><a class="dbd_button" href="<%= restaurants_path %>">餐廳列表</a></div>
+  
+      
+      
 </div>
 <div class="row">
   
@@ -18,11 +23,11 @@
 
 
 <div class="row">
-  <table class="striped">
+  <table class="dbd_table">
   	<thead>
   	  <tr>
-  	  	<td>餐廳名稱</td>
         <td>發起人</td>
+        <td>餐廳名稱</td>
   	  	<td>開始時間</td>
   	  	<td>剩餘時間</td>
   	  	<td>連結</td>
@@ -46,7 +51,7 @@
 </div>
 <script>
   <% if notice != nil %>
-  Materialize.toast('<%= flash[:notice] %>', 4000,'rounded')
+    Materialize.toast('<%= flash[:notice] %>', 4000,'rounded')
   <% end %>
 </script>
 

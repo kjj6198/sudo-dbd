@@ -42,12 +42,13 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var Rx = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"rx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var orderData = [];
 
-
-
+	function addOrderData(obj) {
+	  this.push(obj);
+	}
 
 /***/ }
 /******/ ]);

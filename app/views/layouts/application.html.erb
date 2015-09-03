@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-  <nav>
+  <nav class="dbd_navbar">
   <ul class="right">
   <% if !user_signed_in? %>
     <li><%= link_to '註冊', new_user_registration_path %></li>
@@ -19,10 +19,11 @@
   </ul>
   </nav>
 </header>
-<div class="container">
-  <%= yield %>	
+<div class="fullpage clearfix">
+  <div class="container">
+    <%= yield %>	
+  </div>
 </div>
-
 <%= yield :javascripts %>
 </body>
 </html>

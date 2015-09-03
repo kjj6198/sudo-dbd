@@ -1,0 +1,40 @@
+$table_color: #ffbab1;
+
+
+.dbd_table {
+  
+  border-radius: 7px;
+
+
+  thead {
+	
+	padding: 18px 50px;
+
+  	background-color: $table_color;
+	border: 2px solid $table_color;
+
+	td {
+
+	  text-align: center;
+	  border-right: 7px solid #ff8b79;
+
+	  &:last-child {
+	  	border-right: none;
+	  }
+	}
+  }
+
+  tbody {
+  	border: 2px solid $table_color;
+
+  	td {
+  	  padding: 5px 30px;
+  	  border-right: 2px solid #ddd;
+
+  	  &:last-child {
+  	  	border-right: 2px solid $table_color;
+  	  }
+  	}
+
+  }
+}

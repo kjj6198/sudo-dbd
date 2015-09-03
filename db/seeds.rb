@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+for i in 1..10
+	@rest = Restaurant.new
+	@rest.name = 'abc'
+	@rest.phone = '0925'
+	@rest.url = "111"
+	@rest.save
+end

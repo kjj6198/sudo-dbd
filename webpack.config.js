@@ -3,7 +3,8 @@ var webpack = require("webpack");
 module.exports = {
   context: __dirname,
   entry: {
-    restaurants_index: './js/entry/restaurants_index.js'
+    restaurants_index: './js/entry/restaurants_index.js',
+    menu_show: './js/entry/menu_show.js'
   },
   output: {
     path: path.join(__dirname, 'app', 'assets', 'javascripts', 'bundle'),
