@@ -2,6 +2,9 @@
   <td><%= order.name %></td>
 	<td data-foodName="<%= order.food_name %>"><%= order.food_name %></td>
 	<td data-price="<%= order.price %>"><%= order.price %></td>
+    <td data-note="<%= order.note %>">
+    <%= order.note %>
+    </td>
 	<%  if order.has_paid?(order) %>
 	  <td data-status="<%= order.has_paid %>">已經繳費</td>
 	<% else %>
