@@ -1,3 +1,19 @@
 .dbd_navbar {
   background-image: url(navbar.svg);
 }
+.dbd_nav{
+    .dbd_logo {
+        position: relative;
+        img {
+            display: inline-block;
+        }
+        #sdbd_text {
+            width: 70%;
+        }
+        #shrimp{
+            width: 20%;
+            margin-left: 15px;
+            margin-bottom: -15px;
+        }
+    }
+}
