@@ -1,0 +1,12 @@
+@import "mixin";
+
+
+@include keyframes(flash){
+  from { opacity: 0; }
+  to { opacity: 1; }
+};
+
+@include keyframes(bounceRight){
+  from { @include translate(0, 0); }
+  to   { @include translate(4px,0); }
+}

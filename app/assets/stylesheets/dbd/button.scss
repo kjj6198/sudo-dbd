@@ -1,7 +1,11 @@
+@import "animation";
+
 $button_width: 354px;
 $button_color: #ffbab1;
 $button_border: #ff8a78;
 $font_color: #855656;
+
+// all animation effect is in the animation.scss
 
 .dbd_button {
   display: inline-block;
@@ -29,7 +33,14 @@ $font_color: #855656;
   	color: $button_color;
   }
 
+  &:hover:after {
+    display: inline;
+    content: "_"; 
+    @include animation(flash 0.6s ease-out infinite);
+  }
+
   &:last-child {
   	margin-right: 0;
   }
 }
+
