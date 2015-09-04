@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>SudoDbd</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<header>
-  <nav class="dbd_navbar">
-  <ul class="right">
-  <% if !user_signed_in? %>
-    <li><%= link_to '註冊', new_user_registration_path %></li>
-    <li><%= link_to '登入 ', new_user_session_path %></li>
-  <% else %>
-  	<li><%= link_to '登出', destroy_user_session_path, method: :delete %></li>
-  <% end %>
-  </ul>
-  </nav>
-</header>
-  <%= render 'partial/navgation' %>
-
-<div class="fullpage clearfix">
-  <div class="container">
-    <%= yield %>	
-  </div>
-</div>
-<% if Rails.env.development? %>
-  <%= debug params %> 
-<% end %>
-<%= yield :javascripts %>
-
-</body>
+  <head>
+    <title>SudoDbd</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <nav class="dbd_navbar">
+        <ul class="right">
+          <% if !user_signed_in? %>
+          <li>          <%= link_to "快速登入", user_omniauth_authorize_path(:google_oauth2) %></li>
+          <% else %>
+          <li><%= link_to '登出', destroy_user_session_path, method: :delete %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+    <%= render 'partial/navgation' %>
+    <div class="fullpage clearfix">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
+    <% if Rails.env.development? %>
+    <%= debug params %>
+    <% end %>
+    <%= yield :javascripts %>
+  </body>
 </html>

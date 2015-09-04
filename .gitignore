@@ -19,3 +19,9 @@
 # Ignore node moduls
 
 /node_modules
+
+# Ignore application.yml
+/config/application.yml
+
+# Ignore application configuration
+/config/application.yml
