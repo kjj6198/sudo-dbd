@@ -32,7 +32,7 @@
       </thead>
       <tbody>
         <!-- todo 動態倒數 -->
-        <% if user_signed_in? %>
+        <% if @menus.present? %>
           <% @menus.each do |menu| %>
           <tr>
             <!-- todo 加入餐廳名稱 -->
