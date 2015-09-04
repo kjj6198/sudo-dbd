@@ -18,8 +18,9 @@ gem 'rolify'
 gem 'mini_magick'
 gem "font-awesome-rails"
 gem 'ckeditor'
-
-
+# google login
+gem "omniauth-google-oauth2"
+gem "figaro"
 group :development, :test do
   gem 'byebug'
   gem 'better_errors'
