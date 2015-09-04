@@ -24,7 +24,8 @@
 }
 .dbd_input_field {
   position: relative;
-  input[type=text] {
+  input[type=text],
+  input[type=number] {
 	height:1.5rem ;
 	padding-left: 4rem ;
 	margin-bottom: 1.1rem ;
