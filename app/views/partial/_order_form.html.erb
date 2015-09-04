@@ -1,6 +1,10 @@
 <%= form_for ([@menu,@menu.orders.build]) do |f| %>
 	<%= f.label :name, '名稱' %>
-	<%= f.text_field :name %>
+    <% if current_user.present? %>
+	<%= f.text_field :name, value:  current_user.username%>
+    <% else %>
+    <%= f.text_field :name %>
+    <% end %>
 	<%= f.label :food_name, '菜名' %>
 	<%= f.text_field :food_name %>
 	<%= f.label :price, '價格' %>
