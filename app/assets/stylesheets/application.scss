@@ -9,11 +9,14 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *= require ./dbd/dbd_icon
+ *= require_tree ./dbd
+ *= require materilize
+ *= require_tree ./animations
+ *= require_tree ./pages
+ *= require main
+ *= require frontend
  *= require font-awesome
  *= require_self
- *= require_tree .
- *=
  */
 
 

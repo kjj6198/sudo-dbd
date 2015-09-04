@@ -32,22 +32,21 @@
       </thead>
       <tbody>
         <!-- todo 動態倒數 -->
-        
-          <% @menus.each do |menu| %>
-          <tr>
-            <!-- todo 加入餐廳名稱 -->
-            <% if menu.user.present? %>
-              <td><%= menu.user.username %></td>
-            <% else %>
-              <td> </td>
-            <% end %>
-            <td><%= menu.restaurant.name %></td>
-            <td><%= time_ago_in_words(menu.created_at) %></td>
-            <td data-time="<%= menu.end_time %>">1</td>
-            <td><%= link_to '我要點餐', menu_path(menu) %></td>
-          </tr>
+        <% @menus.each do |menu| %>
+        <tr>
+          <!-- todo 加入餐廳名稱 -->
+          <% if menu.user.present? %>
+            <td><%= menu.user.username %></td>
+          <% else %>
+            <td> </td>
           <% end %>
-        
+          <td><%= menu.restaurant.name %></td>
+          <td><%= time_ago_in_words(menu.created_at) %></td>
+          <td data-time="<%= menu.end_time %>">1</td>
+          <td><%= link_to '我要點餐', menu_path(menu) %></td>
+        </tr>
+        <% end %>
+
       </tbody>
     </table>
   </div>
