@@ -1,0 +1,53 @@
+//refactor 因為materialize 直接設定input 所以先用ID壓過去
+@import "mixin";
+#dbd_input_field {
+  position: relative;
+
+  input {
+	height:1.5rem;
+	
+	padding-left: 4rem;
+	margin-bottom: 1.1rem;
+	
+	font-size: 1rem;
+
+  	@include dbd_border_setting(2px,  solid, $color:#ffbab1);
+  	border-radius: 16px;
+  	box-shadow: none;
+  	background-color: transparent;
+
+  	@include box-sizing(inherit);
+  }
+
+  textarea {
+  	height: 10rem;
+	
+	padding-top: 1.5rem;
+
+	font-size: 0.8rem;
+	letter-spacing: 3px;
+
+	color: #855656;
+
+	@include dbd_border_setting(2px,  solid, $color:#ffbab1);
+  	border-radius: 16px;
+
+  	resize: none;
+  }
+
+  label {
+  	position: absolute;
+  	top: 1px; //equal to input's border
+  	left: 0;
+	height: 1.5rem;
+	line-height: 1.5rem;
+
+	padding: 3px 18px;
+	
+	color: #715251;
+	
+	border-radius: 16px 0 0 16px;
+  	background-color: #ffbab1;
+  }
+
+}

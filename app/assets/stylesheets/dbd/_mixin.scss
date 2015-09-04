@@ -51,6 +51,11 @@
 }
 
 //other setting 
+@mixin dbd_border_setting($size, $style, $color:#ffbab1){
+  border: $size $style $color;
+}
+
+
 
 //animation
 

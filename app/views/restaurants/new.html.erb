@@ -1,27 +1,29 @@
 <div class="row">
   <%= form_for @restaurant, :url => {:controller => 'restaurants', :action => 'create'} do |f| %>
-    <div class="col s12 m12 l12">
-      <div class="row">
+    <div class="col s12 m6 l6">
+      <div id="dbd_input_field" class="clearfix">
         <%= f.label :name, "名稱" %>
-    	  <%= f.text_field :name %>
+        <%= f.text_field :name %>
         <br>
+      </div>
+      <div id="dbd_input_field" class="clearfix">
         <%= f.label :phone, "電話" %>
         <%= f.text_field :phone %>
         <br>
+      </div>
+      <div id="dbd_input_field" class="clearfix">
         <%= f.label :introduction, '簡介' %>
         <%= f.text_area :introduction %>
         <br>
-		
-		<%= f.label :url, "上傳菜單" %>
-		<%= f.text_field :url %>
-    		
+      </div>  
+      <div id="dbd_input_field" class="clearfix">
+        <%= f.label :url, "上傳菜單" %>
+        <%= f.text_field :url %>
         <br>
-        <%= f.label :rank, "評分" %>
-        <%= f.text_field :rank %>
       </div>
-
+       
+        <%= f.submit "送出", class: "dbd_button" %>
     </div>
-    <%= f.submit "送出", class:"btn" %>
-
   <% end %>
+
 </div>
