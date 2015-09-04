@@ -35,7 +35,7 @@
         <% @menus.each do |menu| %>
         <tr>
           <!-- todo 加入餐廳名稱 -->
-          <td><%= menu.user.email %></td>
+          <td><%= menu.user.username %></td>
           <td><%= menu.restaurant.name %></td>
           <td><%= time_ago_in_words(menu.created_at) %></td>
           <td data-time="<%= menu.end_time %>">1</td>
