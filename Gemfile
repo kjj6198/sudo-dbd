@@ -18,6 +18,7 @@ gem 'rolify'
 gem 'mini_magick'
 gem "font-awesome-rails"
 gem 'ckeditor'
+gem 'simple_form'
 # google login
 gem "omniauth-google-oauth2"
 gem "figaro"
