@@ -15,6 +15,7 @@
         <span class="dbd_icon-star dbd_icon--selected"></span>
         <span class="dbd_icon-star dbd_icon--selected"></span>
         <span class="dbd_icon-star dbd_icon--selected"></span>
+        <% if can? :update, rest %>
         <div class="card_action">
           <%= link_to edit_restaurant_path(rest) do%>
           <span class="dbd_icon-pencil"></span>
@@ -23,6 +24,7 @@
           <span class="dbd_icon--selected dbd_icon-remove"></span>
           <% end %>
         </div>
+        <% end %>
       </div>
       
     </div>

@@ -1,20 +1,21 @@
 <tr>
-  <td data-userName="<%= order.user.username %>"><%= order.user.username %></td>
-	<td data-foodName="<%= order.food_name %>"><%= order.food_name %></td>
-	<td data-price="<%= order.price %>"><%= order.price %></td>
+    <td data-userName="<%= order.user.username %>"><%= order.user.username %></td>
+    <td data-foodName="<%= order.food_name %>"><%= order.food_name %></td>
+    <td data-price="<%= order.price %>"><%= order.price %></td>
     <td data-note="<%= order.note %>">
-    <%= order.note %>
+        <%= order.note %>
     </td>
-	<%  if order.has_paid?(order) %>
-	  <td data-status="<%= order.has_paid %>">已經繳費</td>
-	<% else %>
-	  <td data-status="<%= order.has_paid %>">尚未繳費</td>
-	<% end %>
+    <%  if order.has_paid?(order) %>
+    <td data-status="<%= order.has_paid %>">已經繳費</td>
+    <% else %>
+    <td data-status="<%= order.has_paid %>">尚未繳費</td>
+    <% end %>
     <td>
+        <% if can? :destroy, order %>
         <%= link_to menu_order_path(@menu, order), method: :delete, class:"delete_option" do %>
-        <span class="dbd_icon--selected dbd_icon-remove"></span> 
+        <span class="dbd_icon--selected dbd_icon-remove"></span>
         <span>刪除</span>
+        <% end %>
         <% end %>
     </td>
 </tr>
-

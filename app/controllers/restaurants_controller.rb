@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :auth_google_user!, only: [:new, :create]
+  authorize_resource :restaurant
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
   def index
     @restaurants = Restaurant.all  	

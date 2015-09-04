@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
  before_action :find_menu
+ authorize_resource :order
  def create
-   
    @order = @menu.orders.new(order_params)
    @order.user_id = current_user.id
    if @order.save!
