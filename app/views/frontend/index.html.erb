@@ -10,16 +10,23 @@
     </div>
   </div>
   <div class="row">
-    <div class="col s12 m6 l4"><a  class="dbd_button" href="<%= new_menu_path %>"><i class="dbd_icon-pencil"></i>發起訂餐</a></div>
-    <div class="col s12 m6 l4"><a class="dbd_button" href="<%= new_restaurant_path %>"><i class="dbd_icon-restaurant"></i>新增餐廳</a></div>
-    <div class="col s12 m6 l4"><a class="dbd_button" href="<%= restaurants_path %>"><i class="dbd_icon-orderlist"></i>餐廳列表</a></div>
-    
-    
-    
+    <div class="col s12 m6 l4">
+      <%= link_to new_menu_path, class: "dbd_button" do%>
+      <i class="dbd_icon-pencil"></i>發起訂餐
+      <% end %>
+    </div>
+    <div class="col s12 m6 l4">
+      <%= link_to new_restaurant_path, class: "dbd_button" do %>
+      <i class="dbd_icon-restaurant"></i>新增餐廳
+      <% end %>
+    </div>
+    <div class="col s12 m6 l4">
+      <%= link_to restaurants_path, class: "dbd_button" do%>
+      <i class="dbd_icon-orderlist"></i>餐廳列表
+      <% end %>
+    </div>
   </div>
-  <div class="row">
-    
-  </div>
+
   <div class="row">
     <table class="dbd_table">
       <thead>
