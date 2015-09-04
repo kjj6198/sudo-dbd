@@ -3,7 +3,8 @@
     <div class="banner">
       <div class="col s12 m12 l12 center">
         <div class="logo-box center">
-          <%= image_tag 'logo.png' %>
+        <%= image_tag 'sdbd_text.png', id:"sdbd_text" %>
+         <%= image_tag 'shrimp.png', id: "shrimp" %>
         </div>
       </div>
     </div>
@@ -62,3 +63,6 @@
 Materialize.toast('<%= flash[:notice] %>', 4000,'rounded')
 <% end %>
 </script>
+
+<%= content_for :javascripts %>
+<%= javascript_include_tag "bundle/landing_page_bundle.js" %>
