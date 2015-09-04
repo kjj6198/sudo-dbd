@@ -21,6 +21,9 @@ gem 'ckeditor'
 # google login
 gem "omniauth-google-oauth2"
 gem "figaro"
+# Filepicker
+gem 'filepicker-rails'
+
 group :development, :test do
   gem 'byebug'
   gem 'better_errors'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902042420) do
+ActiveRecord::Schema.define(version: 20150904155825) do
 
   create_table "menus", force: :cascade do |t|
     t.string   "name"
@@ -45,9 +45,10 @@ ActiveRecord::Schema.define(version: 20150902042420) do
     t.string   "phone"
     t.float    "rank"
     t.text     "introduction"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "url"
+    t.string   "filepicker_url"
   end
 
   create_table "roles", force: :cascade do |t|

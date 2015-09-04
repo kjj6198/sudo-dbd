@@ -25,5 +25,6 @@ module SudoDbd
     config.generators do |g|
       g.assets false
     end
+    config.filepicker_rails.api_key = ENV["FILE_PICKER_API_KEY"]
   end
 end
