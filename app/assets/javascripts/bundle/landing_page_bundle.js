@@ -69,7 +69,7 @@
 	var fancyShrimp = function() {
 	    console.log('do');
 	    flashAnimate($sdbdText);
-	    cycleMove($shrimp)
+	    cycleMove($shrimp);
 	}
 	var flashAnimate = function(elem) {
 	    elem.css("opacity", 0);
