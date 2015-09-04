@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :auth_google_user!, only: [:new, :create]
-  before_action :find_restaurant, only: [:show]
+  before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
   def index
     @restaurants = Restaurant.all  	
   end  
@@ -22,6 +22,20 @@ class RestaurantsController < ApplicationController
     else
       redirect_to new_restaurant_path(@restaurant), :notice => '新增失敗，請確認欄位'
     end
+  end
+
+  def edit
+    
+  end
+
+  def update
+    @restaurant.update(restaurant_params)
+    redirect_to @restaurant
+  end
+
+  def destroy
+    @restaurant.destroy
+    redirect_to restaurants_path
   end
 
   private 

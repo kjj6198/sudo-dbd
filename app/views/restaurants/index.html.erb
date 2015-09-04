@@ -1,25 +1,33 @@
-<div class="row center">
-  <a class="dbd_button" href="<%= new_restaurant_path %>">新增餐廳</a>
-</div>
-<div class="row">
-<% @restaurants.each do |rest| %>
-<div class="col s12 m6 l4">
-  <div class="restaurant_card center">
-  	<h6 class="card_title"><%= rest.name %></h6>
-    <h6 class="phone"><%= rest.phone %></h6>
-    <span class="dbd_icon-star dbd_icon--selected"></span>
-    <span class="dbd_icon-star dbd_icon--selected"></span>
-    <span class="dbd_icon-star dbd_icon--selected"></span>
-    <span class="dbd_icon-star dbd_icon--selected"></span>
-    <span class="dbd_icon-star dbd_icon--selected"></span>
-    <div class="card_action">
-      <span class="dbd_icon-pencil"></span>
-      <span class="dbd_icon--selected dbd_icon-remove"></span>
-    </div>
+<div id="restaurants_index">
+  <div class="row center">
+    <a class="dbd_button" href="<%= new_restaurant_path %>">新增餐廳</a>
   </div>
-  
-</div>
-<% end %>
+  <div class="row">
+    <% @restaurants.each do |rest| %>
+    <div class="col s12 m6 l4">
+      <div class="restaurant_card center">
+        <%= link_to restaurant_path(rest) do%>
+        <h6 class="card_title"><%= rest.name %></h6>
+        <% end %>
+        <h6 class="phone"><%= rest.phone %></h6>
+        <span class="dbd_icon-star dbd_icon--selected"></span>
+        <span class="dbd_icon-star dbd_icon--selected"></span>
+        <span class="dbd_icon-star dbd_icon--selected"></span>
+        <span class="dbd_icon-star dbd_icon--selected"></span>
+        <span class="dbd_icon-star dbd_icon--selected"></span>
+        <div class="card_action">
+          <%= link_to edit_restaurant_path(rest) do%>
+          <span class="dbd_icon-pencil"></span>
+          <% end %>
+          <%= link_to restaurant_path(rest), method: :delete, data: {confirm: "Are you sure?"} do %>
+          <span class="dbd_icon--selected dbd_icon-remove"></span>
+          <% end %>
+        </div>
+      </div>
+      
+    </div>
+    <% end %>
+  </div>
 </div>
 <%= content_for :javascripts do %>
 <%= javascript_include_tag 'bundle/restaurants_index_bundle'%>
