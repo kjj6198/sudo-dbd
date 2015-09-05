@@ -10593,14 +10593,17 @@
 /***/ function(module, exports) {
 
 	var EXPIRED = "已截止";
+
 	var $activeCountDowns = $(".countDown").toArray().
 	map(function(element) {
 	    return $(element)
 	}).
 	filter(activeOrNot);
+
 	var timers = $activeCountDowns.map(function(activeCountDown) {
-	    console.log(activeCountDown.text().trim());
-	    var matchedText = activeCountDown.text().replace(/\s/g, '').match(/(\d+).+\:.+(\d+)/);
+	    var matchedText = activeCountDown.text().
+	    replace(/\s/g, '').
+	    match(/(\d+):(\d+)/);
 
 	    return {
 	        elem: activeCountDown,
@@ -10632,7 +10635,6 @@
 	    } else {
 	        timer.seconds -= 1
 	    }
-	    console.log(timer);
 	    return timer;
 	}
 
@@ -10662,15 +10664,6 @@
 	//     }
 	//     return getformatTime(duration);
 	// }
-
-
-
-
-	// et=$("td[data-time").data("time")
-	// st=$("td[data-time").siblings("td[data-starttime]").data("starttime")
-	// etd = new Date(et)
-	// std= new Date(st)
-	// ds = (etd-std)/1000
 
 /***/ }
 /******/ ]);
