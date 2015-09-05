@@ -1,6 +1,8 @@
 class ChangeFormatDatetimeToMenus < ActiveRecord::Migration
   def change
-  	change_column :menus, :start_time, :datetime
-  	change_column :menus, :end_time, :datetime
+    remove_column :menus, :start_time
+    remove_column :menus, :end_time
+  	add_column :menus, :start_time, :datetime
+    add_column :menus, :end_time, :datetime
   end
 end

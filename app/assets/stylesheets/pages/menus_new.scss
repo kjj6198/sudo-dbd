@@ -1,0 +1,62 @@
+@import "../dbd/mixin";
+#menus_new {
+    #residual_time {
+        input{
+            padding-left: 140px;
+        }
+    }
+    #restaurant_select {
+        &:hover {
+            #drop_arrow, input {
+                color: #ffbab1 !important;                
+            }
+            input {
+                background-color: rgb(113, 82, 81) !important;
+            }
+        }
+        #drop_arrow {
+            position: absolute;
+            z-index: 5;
+            color: rgb(113, 82, 81);
+            right: 10%;
+            top: 33%;
+
+        }
+        label[for="menu_restaurant_id"] {
+            @include box-sizing(border-box);
+            height: 100%;
+            vertical-align: middle;
+            margin-bottom: 1.1rem;
+            padding-top: 15px;
+            border-radius: 16px 0 0 16px;
+            font-size: 1rem;
+        }
+        .select-wrapper {
+            .mdi-navigation-arrow-drop-down {
+                display: none;
+            }
+    
+            input {
+                color: rgb(113, 82, 81);
+                text-align: center;
+                margin-bottom: 1.1rem;
+                font-size: 1rem;
+                @include dbd_border_setting(2px, solid, $color: #ffbab1);
+                @include box-sizing(border-box);
+                border-radius: 16px;
+                box-shadow: none;
+                background-color: transparent;
+            }
+            .dropdown-content {
+                z-index: 6;
+            }
+            .dropdown-content li > span{
+                color: rgb(113, 82, 81);
+            }
+        }
+        .select-wrapper input.select-dropdown {
+
+        }        
+    }
+
+}

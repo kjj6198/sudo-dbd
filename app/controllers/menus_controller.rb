@@ -3,7 +3,7 @@ class MenusController < ApplicationController
   before_action :set_current_user
  
   def index
-    	
+    @menus = Menu.includes(:user, :restaurant).order(start_time: :desc);
   end
 
   def show
