@@ -21,7 +21,7 @@ class MenusController < ApplicationController
   def create
     @menu = @user.menus.new(menu_param)
   	@menu.start_time = Time.now
-    @menu.end_time = Time.now + params[:menu][:duration]  * 60
+    @menu.end_time = Time.now + params[:menu][:duration].to_i  * 60
     @menu.save
 
     # todo 訊息統一管理 放在哪？？？

@@ -49,8 +49,8 @@
               <td> </td>
             <% end %>
             <td><%= menu.restaurant.name %></td>
-            <td><%= menu.start_time %></td>
-            <td data-time="<%= menu.end_time %>">1</td>
+            <td data-starttime="<%= menu.start_time %>"></td>
+            <td data-time="<%= menu.end_time %>"></td>
             <td><%= link_to '我要點餐', menu_path(menu) %></td>
           </tr>
           <% end %>
@@ -62,6 +62,43 @@
   <% if notice != nil %>
     Materialize.toast('<%= flash[:notice] %>', 4000,'rounded')
   <% end %>
+
+// refactor: sorry Denny, I need to do my part-time job, I'll be back at 11:pm.
+$("td[data-starttime").each(function(){
+  var time = $(this).data("starttime");
+  var formatTime = new Date(time);
+  $(this).text(formatTime.toLocaleTimeString());
+});
+
+
+function countDown(){
+  
+  var time = this.dataset.time;
+  
+  var date = new Date(time);
+
+  var substract = date.getTime() - Date.now(); //統一格式
+      substract = Math.floor(substract / 60 / 24);
+
+  function getformatTime(sec){
+    var minute = Math.floor(sec / 60);
+    var second = sec % 60;
+
+    if(sec < 0){
+      return "已截止"
+    }
+    else{
+      return minute.toString() + ":" + second.toString();  
+    } 
+  }
+  return getformatTime(substract);
+}
+
+setInterval(function(){$('td[data-time]').each(function(){
+  var $text = countDown.call(this);
+  $(this).text($text);
+}
+)},1100);
 </script>
 
 <%= content_for :javascripts %>

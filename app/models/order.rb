@@ -6,10 +6,10 @@ class Order < ActiveRecord::Base
   end
 
   def can_save?
-  	if(Time.now < self.menu.end_time)
+  	if(Time.now <= self.menu.end_time)
   	  return true
   	else
-	  return false
+	    return false
   	end
   end
 
