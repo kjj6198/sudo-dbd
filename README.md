@@ -16,4 +16,9 @@
 
 ### refactor
 * 用 select box 顯示餐廳資訊
-* 
+* PG 在調整時間時會有錯誤 PG::DatatypeMismatch: ERROR:  column "start_time" cannot be cast automatically to type timestamp without time zone
+HINT:  Specify a USING expression to perform the conversion.
+: ALTER TABLE "menus" ALTER COLUMN "start_time"
+
+* pipeline MD5 fingerprint 的問題尚未解決 (放在public?)
+
