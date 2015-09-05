@@ -1,38 +1,27 @@
 @font-face {
-  font-family: 'Sudo-Ding-Ben-Don';
-  src:url('fonts/Sudo-Ding-Ben-Don.eot?cwdyey');
-  src:url('fonts/Sudo-Ding-Ben-Don.eot?#iefixcwdyey') format('embedded-opentype'),
-    url('fonts/Sudo-Ding-Ben-Don.ttf?cwdyey') format('truetype'),
-    url('fonts/Sudo-Ding-Ben-Don.woff?cwdyey') format('woff'),
-    url('fonts/Sudo-Ding-Ben-Don.svg?cwdyey#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@for $i from 1 through 6 {
-  .dbd_#{$i}x {
-  	font-size: #{$i}em;
-  }
+	font-family: 'Sudo-Ding-Ben-Dong';
+	src:url('fonts/Sudo-Ding-Ben-Dong.eot?-1n4lpl');
+	src:url('fonts/Sudo-Ding-Ben-Dong.eot?#iefix-1n4lpl') format('embedded-opentype'),
+		url('fonts/Sudo-Ding-Ben-Dong.ttf?-1n4lpl') format('truetype'),
+		url('fonts/Sudo-Ding-Ben-Dong.woff?-1n4lpl') format('woff'),
+		url('fonts/Sudo-Ding-Ben-Dong.svg?-1n4lpl#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
-$icon_map: (
-  star: "\e603",
-  restaurant: "\e604",
-  remove: "\e607",
-  pencil:"\e601",
-  orderlist: "\e600"
+
+$dbd_icon_map: (
+  star: "\e600",
+  restaurant: "\e601",
+  remove: "\e602",
+  list: "\e603",
+  pencil: "\e604",
+  google: "\e605",
+  money: "\e606",
 );
 
-@each $icon_name, $icon_content in $icon_map {
-  .dbd_icon-#{$icon_name}:before {
-    content: $icon_content;
-    color: #ff8a78;
-  }
-}
-
-
-
 [class^="dbd_icon-"], [class*="dbd_icon-"] {
-  font-family: "Sudo-Ding-Ben-Don";
+  font-family: "Sudo-Ding-Ben-Dong";
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -43,7 +32,20 @@ $icon_map: (
   -moz-osx-font-smoothing: grayscale; 
 }
 
+@for $i from 1 through 5 {
+  .dbd_icon-#{$i}x {
+  	font-size: #{$i}em;
+  }	
+}
 
-.dbd_icon--selected {
+%icon_color {
   color: #ff8a78;
 }
+
+@each $icon_name, $icon_content in $dbd_icon_map {
+  .dbd_icon-#{$icon_name}:before {
+	content: $icon_content;
+	@extend %icon_color;
+  }
+}
+
