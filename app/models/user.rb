@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   	with: /\A([A-Za-z0-9_\-\.])+\@sudo.com.tw\z/
   }
   has_many :menus
+  has_many :orders
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(:email => data["email"]).first

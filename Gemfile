@@ -13,14 +13,18 @@ gem 'carrierwave'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.4.0'
-gem 'cancancan', '~> 1.10'
 gem 'rolify'
 gem 'mini_magick'
 gem "font-awesome-rails"
 gem 'ckeditor'
+gem 'simple_form'
+gem 'cancancan', '~> 1.10'
 # google login
 gem "omniauth-google-oauth2"
 gem "figaro"
+# Filepicker
+gem 'filepicker-rails'
+
 group :development, :test do
   gem 'byebug'
   gem 'better_errors'

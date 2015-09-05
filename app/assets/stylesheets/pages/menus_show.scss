@@ -1,0 +1,20 @@
+#menus_show{
+    .dbd_table {
+        *{
+            text-align: center ;    
+        }
+        .delete_option {
+            span{
+                color: rgb(255, 138, 120);
+                vertical-align: text-top;
+                padding:5px;
+            }
+            
+        }
+    }
+    #dbd_hint {
+        padding: 28px;
+        color: rgb(113, 82, 81);
+        letter-spacing: 2px;
+    }
+}

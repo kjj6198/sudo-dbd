@@ -1,12 +1,26 @@
 #front_end_index {
     .banner {
         padding: 28px;
+        padding-top: 56px;
     }
-    #sdbd_text {
-        padding: 28px;
-    }
-    #shrimp {
-        padding-left: 14px;        
+    .logo-box {
+        position: relative;
+
+        width:100%;
+        height: 25vh;
+        img {
+            position: absolute;
+        }
+        #sdbd_text {
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+        }
+        #shrimp {
+            left: 70%;
+            top: 60%;
+        }
     }
 }
 

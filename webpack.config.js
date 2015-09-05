@@ -3,6 +3,8 @@ var webpack = require("webpack");
 module.exports = {
   context: __dirname,
   entry: {
+    app: './js/entry/app.js',
+    landing_page: './js/entry/landing_page.js',
     restaurants_index: './js/entry/restaurants_index.js',
     menu_show: './js/entry/menu_show.js'
   },

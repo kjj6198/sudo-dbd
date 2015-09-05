@@ -1,15 +1,19 @@
-<%= form_for ([@menu,@menu.orders.build]) do |f| %>
-	<%= f.label :name, '名稱' %>
-	<%= f.text_field :name %>
-	<%= f.label :food_name, '菜名' %>
-	<%= f.text_field :food_name %>
-	<%= f.label :price, '價格' %>
-	<%= f.text_field :price %>
-	<br>
-	<%= f.submit '送出', class: "dbd_button",id: "order_button"  %>
-	
-<% end %>
-
+<div class="row">
+    <div class="col s12 m4 l4 offset-m4 offset-l4 center">
+        <%= simple_form_for ([@menu,@menu.orders.build]) do |f| %>
+        <div id="dbd_hint">
+            Hi, <%= current_user.username %>, <br>
+            how about DBD一下？
+        </div>
+        <%= f.input :food_name, label: "菜名",
+        wrapper_html: {class: "dbd_input_field"} %>
+        <%= f.input :price, label: '價格',
+        wrapper_html: {class: "dbd_input_field"} %>
+        <%= f.input :note, label: '備註',
+        wrapper_html:{class: "dbd_input_field"} %>
+        <%= f.submit '送出', class: "dbd_button",id: "order_button"  %>
+        <% end %>
+    </div>
+</div>
 <script>
- 
 </script>

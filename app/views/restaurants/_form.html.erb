@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col s12 offset-m4 m6 l6 offset-l4">
+    <%= simple_form_for @restaurant do |f| %>
+    <% if @restaurant.errors.any? %>
+    <h2>error</h2>
+    <ul>
+      <% @restaurant.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+    <% end %>
+    
+      <div class="clearfix dbd_input_field">
+        <%= f.label :name, "名稱" %>
+        <%= f.text_field :name %>
+        <br>
+      </div>
+      <div class="clearfix dbd_input_field">
+        <%= f.label :phone, "電話" %>
+        <%= f.text_field :phone %>
+        <br>
+      </div>
+      <div class="clearfix dbd_input_field">
+        <%= f.label :introduction, '簡介', class:"textarea_label" %>
+        <%= f.text_area :introduction %>
+        <br>
+      </div>
+      <div id="upload_filed" class="clearfix dbd_input_field">
+        <p>上傳圖片</p>
+        <% if @restaurant.filepicker_url.present? %>
+        <%= filepicker_image_tag @restaurant.filepicker_url, w: 160, h: 160, fit: 'clip' %>
+        <% end %>
+        <div class="btn_container">
+          <%= f.filepicker_field :filepicker_url    %>
+        </div>
+        <br>
+
+      
+      <%= f.submit "送出", class: "dbd_button" %>
+    </div>
+    <% end %>
+  </div>
+</div>

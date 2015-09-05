@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902042420) do
+ActiveRecord::Schema.define(version: 20150904195637) do
 
   create_table "menus", force: :cascade do |t|
     t.string   "name"
-    t.time     "start_time"
-    t.time     "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.boolean  "status",          default: true
     t.integer  "user_id"
     t.string   "restaurant_name"
     t.integer  "restaurant_id"
+    t.integer  "duration"
   end
 
   add_index "menus", ["restaurant_id"], name: "index_menus_on_restaurant_id"
@@ -36,18 +37,22 @@ ActiveRecord::Schema.define(version: 20150902042420) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "menu_id"
+    t.string   "note"
+    t.integer  "user_id"
   end
 
   add_index "orders", ["menu_id"], name: "index_orders_on_menu_id"
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
     t.string   "phone"
     t.float    "rank"
     t.text     "introduction"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "url"
+    t.string   "filepicker_url"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -62,12 +67,12 @@ ActiveRecord::Schema.define(version: 20150902042420) do
   add_index "roles", ["name"], name: "index_roles_on_name"
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -75,6 +80,7 @@ ActiveRecord::Schema.define(version: 20150902042420) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

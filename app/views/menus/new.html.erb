@@ -1,3 +1,4 @@
+<h2 id="page_title">發起訂餐</h2>
 <div class="row">
   <% if @restaurant.present? %>
   <%= image_tag @restaurant.restaurant_picture %>
@@ -6,24 +7,22 @@
 <div class="row">
   <!-- todo 加入餐廳資訊 -->
   <%= form_for @menu, :url => {:controller => 'menus', :action => 'create' } do |f| %>
-    <div class="col s12 m12 l12">
+    <div class="col s12 m6 offset-m3 l5 offset-l2">
       <div class="row">
+
         <div class="input-field">
           <%= f.collection_select(:restaurant_id, Restaurant.all, :id, :name) %>
         </div>
         <!-- todo reactive 加入菜單圖片 -->
+        <div class="clearfix dbd_input_field">
+          <%= f.label :duration, "開放時間" %>
+          <%= f.text_field :duration %>
         <br>
-        <%= f.label :start_time, "開始時間" %>
-        <%= datetime_field(:menus, Time.now) %>
-        <br>
-        <%= f.label :end_time, "開放時間" %>
-        <%= datetime_field(:menus, :end_time) %>
+        </div>
       </div>
-      <div>
-      
-      </div>
+      <%= f.submit "送出", class: "dbd_button", :method => 'POST'  %>
     </div>
-    <%= f.submit "送出", class:"btn", :method => 'POST'  %>
+    
 
   <% end %>
 </div>

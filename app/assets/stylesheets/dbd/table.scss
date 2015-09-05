@@ -2,7 +2,9 @@ $table_color: #ffbab1;
 
 
 .dbd_table {
-
+  * {
+    text-align: center;
+  }
   color: #715251;
 
   thead {
