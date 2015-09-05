@@ -15,14 +15,15 @@ ActiveRecord::Schema.define(version: 20150904195637) do
 
   create_table "menus", force: :cascade do |t|
     t.string   "name"
-    t.time     "start_time"
-    t.time     "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.boolean  "status",          default: true
     t.integer  "user_id"
     t.string   "restaurant_name"
     t.integer  "restaurant_id"
+    t.integer  "duration"
   end
 
   add_index "menus", ["restaurant_id"], name: "index_menus_on_restaurant_id"
