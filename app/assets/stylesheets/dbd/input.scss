@@ -31,9 +31,7 @@
       padding-left: 4rem;
       margin-bottom: 1.1rem;
       font-size: 1rem;
-      @include dbd_border_setting(2px,
-      solid,
-      $color: #ffbab1);
+      @include dbd_border_setting(2px, solid, $color: #ffbab1);
       border-radius: 16px;
       box-shadow: none;
       background-color: transparent;

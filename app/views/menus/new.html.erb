@@ -1,34 +1,36 @@
-<h2 id="page_title">發起訂餐</h2>
-<div class="row">
-  <% if @restaurant.present? %>
-  <%= image_tag @restaurant.restaurant_picture %>
-  <% end %>
-</div>
-<div class="row">
-  <!-- todo 加入餐廳資訊 -->
-  <%= form_for @menu, :url => {:controller => 'menus', :action => 'create' } do |f| %>
+<div id="menus_new">
+  <h2 id="page_title">發起訂餐</h2>
+  <div class="row">
+    <% if @restaurant.present? %>
+    <%= image_tag @restaurant.restaurant_picture %>
+    <% end %>
+  </div>
+  <div class="row">
+    <!-- todo 加入餐廳資訊 -->
+    <%= form_for @menu, :url => {:controller => 'menus', :action => 'create' } do |f| %>
     <div class="col s12 m6 offset-m3 l5 offset-l2">
       <div class="row">
-
-        <div class="input-field">
+        <div id="restaurant_select" class="dbd_input_field">
+          <%= fa_icon "sort", id: "drop_arrow" %>
+          <%= f.label :restaurant_id, "餐廳名稱" %>
           <%= f.collection_select(:restaurant_id, Restaurant.all, :id, :name) %>
         </div>
+
         <!-- todo reactive 加入菜單圖片 -->
-        <div class="clearfix dbd_input_field">
+        <div id="residual_time" class="clearfix dbd_input_field">
           <%= f.label :duration, "開放時間" %>
-          <%= f.text_field :duration %>
-        <br>
+          <%= f.text_field :duration, placeholder: "單位(分)" %>
+          <br>
         </div>
       </div>
       <%= f.submit "送出", class: "dbd_button", :method => 'POST'  %>
     </div>
     
-
-  <% end %>
+    <% end %>
+  </div>
 </div>
-
 <script>
-  $(document).ready(function() {
-    $('select').material_select();
-  });
+$(document).ready(function() {
+$('select').material_select();
+});
 </script>
