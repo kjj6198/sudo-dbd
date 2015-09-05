@@ -5,4 +5,12 @@ class Order < ActiveRecord::Base
     return order.has_paid
   end
 
+  def can_save?
+  	if(Time.now < self.menu.end_time)
+  	  return true
+  	else
+	  return false
+  	end
+  end
+
 end

@@ -4,10 +4,12 @@ class OrdersController < ApplicationController
  def create
    @order = @menu.orders.new(order_params)
    @order.user_id = current_user.id
-   if @order.save!
+   
+   if @order.can_save?
+       @order.save
        redirect_to menu_path(@menu), :notice => '成功新增訂餐！請記得繳費'
    else
-       redirect_to menu_path(@menu), :notice => '訂餐失敗 哭哭喔'
+       redirect_to menu_path(@menu), :notice => '訂餐失敗 哭哭喔 下次要早點訂餐哦' #Denny style
    end
    
  end

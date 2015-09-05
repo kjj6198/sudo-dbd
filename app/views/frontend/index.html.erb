@@ -49,7 +49,7 @@
               <td> </td>
             <% end %>
             <td><%= menu.restaurant.name %></td>
-            <td><%= time_ago_in_words(menu.created_at) %></td>
+            <td><%= menu.start_time %></td>
             <td data-time="<%= menu.end_time %>">1</td>
             <td><%= link_to '我要點餐', menu_path(menu) %></td>
           </tr>
@@ -59,9 +59,9 @@
   </div>
 </div>
 <script>
-<% if notice != nil %>
-Materialize.toast('<%= flash[:notice] %>', 4000,'rounded')
-<% end %>
+  <% if notice != nil %>
+    Materialize.toast('<%= flash[:notice] %>', 4000,'rounded')
+  <% end %>
 </script>
 
 <%= content_for :javascripts %>

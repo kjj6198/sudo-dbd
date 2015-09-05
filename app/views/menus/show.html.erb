@@ -25,3 +25,9 @@
   </table>
   <%= render 'partial/order_form' %>
 </div>
+
+<script>
+  <% if notice != nil %>
+    Materialize.toast('<%= flash[:notice] %>', 4000,'rounded')
+  <% end %>
+</script>
