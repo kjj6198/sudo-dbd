@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
        @order.save
        redirect_to menu_path(@menu), :notice => '成功新增訂餐！請記得繳費'
    else
-       redirect_to menu_path(@menu), :notice => '訂餐失敗 哭哭喔 下次要早點訂餐哦' #Denny style
+       redirect_to root_path, :notice => '訂餐失敗 哭哭喔 下次要早點訂餐哦' #Denny style
    end
    
  end
