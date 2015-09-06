@@ -1,3 +1,18 @@
+.pagination {
+    background-color: #ffbab1;
+    span {
+        cursor: pointer;
+        padding: 10px;
+        &:hover {
+            a {
+                color: #ff8b79;        
+            }
+        }
+    }
+    .current {
+        color: #af7975;
+    }
+}
 #page_title {
     padding: 0;
     margin: 0;

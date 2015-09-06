@@ -13,8 +13,16 @@ class Ability
         basic_read_only
         can :create, Restaurant
         can :create, Order
+        can :close, Order do |order|
+          order.menu.user_id == user.id
+        end
         can :destroy, Order do |order|
-            (order.user_id == user.id || order.menu.user_id == user.id)
+            if order.menu.expired?
+                order.menu.user_id == user.id
+            else
+              (order.user_id == user.id || order.menu.user_id == user.id)
+            end
+            
         end
     end
   end
@@ -24,5 +32,6 @@ class Ability
   def basic_read_only
     can :read, Restaurant
     can :read, Menu
+    can :bill, Menu
   end
 end
