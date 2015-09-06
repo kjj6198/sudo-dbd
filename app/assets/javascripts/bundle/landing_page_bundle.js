@@ -10607,8 +10607,8 @@
 
 	    return {
 	        elem: activeCountDown,
-	        minutes: matchedText[1],
-	        seconds: matchedText[2]
+	        minutes: parseInt(matchedText[1]),
+	        seconds: parseInt(matchedText[2])
 	    };
 	});
 
@@ -10639,6 +10639,7 @@
 	}
 
 	function displayTimer(timer) {
+
 	    if (timer.minutes === 0 && timer.seconds === 0) {
 	        timer.elem.text(EXPIRED);
 	    } else {

@@ -26,5 +26,9 @@ module SudoDbd
       g.assets false
     end
     config.filepicker_rails.api_key = ENV["FILE_PICKER_API_KEY"]
+        config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+    config.assets.enabled = true
+    config.assets.paths << Rails.root.join("app","assets", "stylesheets")
+    config.assets.paths << Rails.root.join("app","assets", "stylesheets", "dbd")
   end
 end
