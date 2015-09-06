@@ -4,7 +4,15 @@ Rails.application.routes.draw do
   resources :restaurants
   
   resources :menus do
-  	resources :orders
+  	resources :orders do
+        member do
+            patch :close
+        end
+
+    end
+    member do
+        get :bill
+    end
   end  
 
 end

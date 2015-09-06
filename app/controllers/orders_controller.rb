@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
  before_action :find_menu
+ before_action :find_order, only: [:destroy, :close]
  authorize_resource :order
  def create
    @order = @menu.orders.new(order_params)
@@ -15,9 +16,13 @@ class OrdersController < ApplicationController
  end
 
  def destroy
-     @order = Order.find(params[:id])
      @order.destroy
      redirect_to @menu
+ end
+
+ def close
+   @order.update_attribute(:has_paid, true)
+   redirect_to @menu
  end
 
  private 
@@ -28,6 +33,10 @@ class OrdersController < ApplicationController
 
  def find_menu
      @menu = Menu.find(params[:menu_id])
+ end
+
+ def find_order
+   @order = Order.find(params[:id])
  end
 
 end

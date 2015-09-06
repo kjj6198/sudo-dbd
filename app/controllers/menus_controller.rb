@@ -1,20 +1,24 @@
 class MenusController < ApplicationController
   before_action :auth_google_user!, except: [:index]
- 
+  before_action :find_menu, only: [:show, :bill]
   def index
     @menus = Menu.includes(:user, :restaurant).order(end_time: :asc, start_time: :desc);
   end
 
   def show
-  	@menu = Menu.find(params[:id])
-    @restaurant = @menu.restaurant
+    if @menu.expired?
+      redirect_to action: "bill"
+    else 
+      @restaurant = @menu.restaurant
+    end
+  end
 
+  def bill
 
   end
 
   def new
   	@menu = current_user.menus.new
-  	
   end
 
   def create
@@ -28,6 +32,9 @@ class MenusController < ApplicationController
   end
   
   private
+  def find_menu
+    @menu = Menu.includes(:restaurant, :orders).find(params[:id])
+  end
 
   def menu_param
     params[:menu].permit(:name,:duration, :restaurant_id)
