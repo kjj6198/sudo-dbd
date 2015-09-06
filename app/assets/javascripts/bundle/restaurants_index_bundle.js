@@ -45,6 +45,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var Rx = __webpack_require__(2);
+	jQuery(document).ready(function($) {
+	  $('.modal-trigger').leanModal();	
+	});
 
 
 
