@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-  before_action :auth_google_user!, except: [:index]
+  before_action :auth_google_user!, except: [:index, :show]
   before_action :find_menu, only: [:show, :bill]
   def index
     @menus = Menu.includes(:user, :restaurant).order(end_time: :asc, start_time: :desc);
