@@ -10,3 +10,8 @@
   from { @include translate(0, 0); }
   to   { @include translate(4px,0); }
 }
+
+@include keyframes(fadeoutInY) {
+  from { @include translate(0%, 0%);}
+  to { @include translate(0%, 100%);}
+}

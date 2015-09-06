@@ -1,6 +1,6 @@
 module FrontendHelper
     def show_navbar?
-        params[:controller] == 'frontend'
+        params[:controller] == 'frontend' && params[:action] == 'index'
     end
 
     def render_time(datetime)

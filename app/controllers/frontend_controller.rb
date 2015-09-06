@@ -8,4 +8,8 @@ class FrontendController < ApplicationController
   def order_info
   	
   end
+
+  def about
+	
+  end
 end
