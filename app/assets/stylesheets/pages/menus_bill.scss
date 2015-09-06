@@ -1,4 +1,15 @@
 #menus_bill {
+    .change_column {
+        width: 15%;
+    }
+    .change_input {
+        width: 50%;
+        margin: 0 ;
+        height: 1rem;
+        &:focus {
+            border-bottom: #ffbab1 solid 1px;
+        }
+    }
     .dbd_table {
         *{
             text-align: center ;    

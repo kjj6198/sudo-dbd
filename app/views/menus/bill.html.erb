@@ -15,32 +15,42 @@
         <td>菜名</td>
         <td>價格</td>
         <td>備註</td>
+        <td>找錢</td>
         <td>是否結清</td>
         <td></td>
       </tr>
     </thead>
     <tbody>
-    <% @menu.orders.each do|order| %>
+      <% @menu.orders.each do|order| %>
       <tr>
-        <td data-userName="<%= order.user.username %>"><%= order.user.username %></td>
-        <td data-foodName="<%= order.food_name %>"><%= order.food_name %></td>
-        <td data-price="<%= order.price %>"><%= order.price %></td>
-        <td data-note="<%= order.note %>">
+        <td><%= order.user.username %></td>
+        <td><%= order.food_name %></td>
+        <td><%= order.price %></td>
+        <td>
           <%= order.note %>
         </td>
+        <td class="change_column">
+          <% if !order.has_paid && (can? :update, order) %>
+          <input data-purl="<%= menu_order_url(@menu, order) %>" data-origin="<%= order.change %>" type="number" value="<%= order.change %>" id="<%= "orderChangeInput#{order.id}" %>" class="change_input orderChangeInput">
+          <% else %>
+          <%= order.change %>
+          <% end %>
+          
+        </td>
         <%  if order.has_paid?(order) %>
-        <td data-status="<%= order.has_paid %>">已經繳費</td>
+        <td>已經繳費</td>
         <% else %>
-        <td data-status="<%= order.has_paid %>">尚未繳費</td>
+        <td>尚未繳費</td>
         <% end %>
         <td>
           <% if !order.has_paid && (can? :close, order) %>
+          <div>
             <%= link_to "已付款", close_menu_order_path(@menu, order), method: :patch %>
+          </div>
           <% end %>
           <% if can? :destroy, order %>
           <%= link_to menu_order_path(@menu, order), method: :delete, class:"delete_option" do %>
-          <span class="dbd_icon--selected dbd_icon-remove"></span>
-          <span>刪除</span>
+          <span class="dbd_icon--selected dbd_icon-remove">刪除</span>
           <% end %>
           <% end %>
         </td>
@@ -49,3 +59,6 @@
     </tbody>
   </table>
 </div>
+<%= content_for :javascripts do %>
+<%= javascript_include_tag 'bundle/menu_bill_bundle'%>
+<% end %>
