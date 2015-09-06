@@ -1,14 +1,14 @@
 <div id="restaurants_index">
   <div class="row center">
-    <a class="dbd_button" href="<%= new_restaurant_path %>">新增餐廳</a>
+    <a class="dbd_button" href="<%= new_restaurant_path %>"><i class="dbd_icon-restaurant"></i>新增餐廳</a>
   </div>
   <div class="row">
     <% @restaurants.each do |rest| %>
     <div class="col s12 m6 l4">
       <div class="restaurant_card center">
-        <%= link_to restaurant_path(rest) do%>
-        <h6 class="card_title"><%= rest.name %></h6>
-        <% end %>
+        <a class="modal-trigger" href="#<%= rest.id %>">
+          <h6 class="card_title"><%= rest.name %></h6>
+        </a>
         <h6 class="phone"><%= rest.phone %></h6>
         <span class="dbd_icon-star dbd_icon--selected"></span>
         <span class="dbd_icon-star dbd_icon--selected"></span>
@@ -26,7 +26,11 @@
         </div>
         <% end %>
       </div>
-      
+      <div class="modal" id="<%= rest.id %>">
+        <div class="modal-content">
+          <img style="max-width:100%; max-height:50%;" src="<%= rest.filepicker_url %>" alt="">
+        </div>
+      </div>
     </div>
     <% end %>
   </div>
