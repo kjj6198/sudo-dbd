@@ -10629,7 +10629,6 @@
 	};
 
 	function countdown(timer) {
-	    console.log(timer);
 	    if (timer.seconds === 0) {
 	        timer.minutes -= 1
 	        timer.seconds = 59;
