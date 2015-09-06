@@ -1,9 +1,8 @@
 class MenusController < ApplicationController
-  before_action :auth_google_user!
-  before_action :set_current_user
+  before_action :auth_google_user!, except: [:index]
  
   def index
-    @menus = Menu.includes(:user, :restaurant).order(start_time: :desc);
+    @menus = Menu.includes(:user, :restaurant).order(end_time: :asc, start_time: :desc);
   end
 
   def show
@@ -14,12 +13,12 @@ class MenusController < ApplicationController
   end
 
   def new
-  	@menu = @user.menus.new
+  	@menu = current_user.menus.new
   	
   end
 
   def create
-    @menu = @user.menus.new(menu_param)
+    @menu = current_user.menus.new(menu_param)
   	@menu.start_time = Time.now
     @menu.end_time = Time.now + params[:menu][:duration].to_i  * 60
     @menu.save
@@ -34,8 +33,5 @@ class MenusController < ApplicationController
     params[:menu].permit(:name,:duration, :restaurant_id)
   end
 
-  def set_current_user
-    @user = User.find(current_user)
-  end
 
 end
