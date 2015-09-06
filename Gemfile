@@ -24,6 +24,8 @@ gem "omniauth-google-oauth2"
 gem "figaro"
 # Filepicker
 gem 'filepicker-rails'
+# pagination
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'
