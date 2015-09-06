@@ -1,6 +1,7 @@
 class FrontendController < ApplicationController
+  
   def index
-  	@menus = Menu.includes(:restaurant, :user).order(start_time: :desc).all
+  	@menus = Menu.includes(:restaurant, :user).nice_format
   end
 
   def order_info
