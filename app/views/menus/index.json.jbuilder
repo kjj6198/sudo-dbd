@@ -1,5 +1,7 @@
 json.array! @menus do |menu|
     json.id menu.id
+    json.raw_start_time menu.start_time
+    json.raw_end_time menu.end_time
     json.order_url "http://#{request.host}/menus/#{menu.id}"
     json.start_time render_time(menu.start_time)
     json.phone_numb menu.restaurant.phone
