@@ -16,6 +16,9 @@ class Ability
         can :close, Order do |order|
           order.menu.user_id == user.id
         end
+        can :update, Order do |order|
+          order.menu.user_id == user.id
+        end
         can :destroy, Order do |order|
             if order.menu.expired?
                 order.menu.user_id == user.id

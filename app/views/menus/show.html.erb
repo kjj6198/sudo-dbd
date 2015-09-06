@@ -1,32 +1,30 @@
 <!-- todo: 設定餐廳資訊 -->
 <div id="menus_show">
-<div class="row">
-<div id="menu_img_container">
-    <%=  image_tag @restaurant.filepicker_url , id: "menu_img"%>  
+  <div class="row">
+    <div id="menu_img_container">
+      <%=  image_tag @restaurant.filepicker_url , id: "menu_img"%>
+    </div>
   </div>
 </div>
-  
-</div>
-  
-  <h2 id="page_title">Order</h2>
-  <table class="dbd_table">
-    <thead>
-      <tr>
-        <td>姓名</td>
-        <td>菜名</td>
-        <td>價格</td>
-        <td>備註</td>
-        <td>是否結清</td>
-        <td></td>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render @menu.orders %>
-      
-    </tbody>
-  </table>
-  <%= render 'partial/order_form' %>
 
+<h2 id="page_title">Order</h2>
+<table class="dbd_table">
+  <thead>
+    <tr>
+      <td>姓名</td>
+      <td>菜名</td>
+      <td>價格</td>
+      <td>備註</td>
+      <td>是否結清</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @menu.orders %>
+    
+  </tbody>
+</table>
+<%= render 'partial/order_form' %>
 </div>
 <script>
 <% if notice != nil %>
