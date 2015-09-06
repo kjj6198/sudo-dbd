@@ -27,8 +27,8 @@ class MenusController < ApplicationController
     @menu.end_time = Time.now + params[:menu][:duration].to_i  * 60
     @menu.save
 
-    # todo 訊息統一管理 放在哪？？？
-  	redirect_to root_path, :notice => "訂餐成功!!"
+
+  	redirect_to @menu, :notice => "訂餐成功!!"
   end
   
   private
