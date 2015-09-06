@@ -13,5 +13,6 @@ json.orders do |json|
         json.price order.price
         json.note order.note
         json.has_paid order.has_paid
+        json.change order.change
     end
 end
