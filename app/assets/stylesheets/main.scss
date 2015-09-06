@@ -1,6 +1,7 @@
 .pagination {
     background-color: #ffbab1;
     span {
+        cursor: pointer;
         padding: 10px;
         &:hover {
             a {
