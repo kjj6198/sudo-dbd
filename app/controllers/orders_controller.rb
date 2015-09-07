@@ -21,8 +21,7 @@ class OrdersController < ApplicationController
  end
 
  def update
-   @order.update(params[:order].permit(:change, :company_afford))
-   # @order.update_attribute(:company_afford, params[:company_afford])
+   @order.update(patch_order_params)
    respond_to do |format|
      format.js { render nothing: true } 
    end
@@ -35,6 +34,10 @@ class OrdersController < ApplicationController
  end
 
  private 
+
+ def patch_order_params
+   params[:order].permit(:change, :company_afford, :food_name,:price, :note)
+ end
  
  def order_params
      params[:order].permit(:user_id, :name,:food_name,:price, :has_paid, :note)

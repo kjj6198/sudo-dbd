@@ -28,21 +28,38 @@
       <tr data-purl="<%= menu_order_url(@menu, order) %>">
         <% if can? :update, order %>
         <td>
-        <% if order.company_afford %>
+          <% if order.company_afford %>
           <input type="checkbox" class="orderCompanyAffordCheckbox" id="<%= "afford#{order.id}" %>" checked="checked"/>
           <% else %>
           <input type="checkbox" class="orderCompanyAffordCheckbox" id="<%= "afford#{order.id}" %>" />
-        <% end %>
+          <% end %>
           
           <label for="<%= "afford#{order.id}" %>"></label>
         </td>
         <% end %>
         <td><%= order.user.username %></td>
-        <td><%= order.food_name %></td>
-        <td><%= order.price %></td>
+        <% if can? :update, order %>
+        <td>
+          <input type="text" id="<%= "foodName#{order.id}" %>" class="orderFoodNameInput" value="<%= order.food_name %>">
+        </td>
+        <td>
+          <input type="text" id="<%= "price#{order.id}" %>" class="orderPriceInput" value="<%= order.price %>">
+        </td>
+        <td>
+          <input type="text" id="<%= "note#{order.id}" %>" class="orderNoteInput" value="<%= order.note %>">
+        </td>
+        <% else %>
+        <td>
+          <%= order.food_name %>
+        </td>
+        <td>
+          <%= order.price %>
+        </td>
         <td>
           <%= order.note %>
         </td>
+        <% end %>
+        
         <td class="change_column">
           <% if !order.has_paid && (can? :update, order) %>
           <input type="number" value="<%= order.change %>" id="<%= "orderChangeInput#{order.id}" %>" class="change_input orderChangeInput">
