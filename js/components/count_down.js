@@ -6,7 +6,8 @@ map(function(element) {
 }).
 filter(activeOrNot);
 
-var timers = $activeCountDowns.map(function(activeCountDown) {
+var timers = $activeCountDowns.
+map(function(activeCountDown) {
     var matchedText = activeCountDown.text().
     replace(/\s/g, '').
     match(/(\d+):(\d+)/);

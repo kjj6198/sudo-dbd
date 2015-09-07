@@ -28,5 +28,9 @@ module SudoDbd
     config.filepicker_rails.api_key = ENV["FILE_PICKER_API_KEY"]
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
     config.assets.enabled = true
+    force_ssl if: :ssl_configured?
+    def ssl_configured?
+       Rails.env.production?
+    end
   end
 end
