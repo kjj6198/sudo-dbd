@@ -26,7 +26,7 @@ gem "figaro"
 gem 'filepicker-rails'
 # pagination
 gem 'kaminari'
-
+gem 'curb'
 group :development, :test do
   gem 'byebug'
   gem 'better_errors'

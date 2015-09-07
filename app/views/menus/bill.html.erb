@@ -69,9 +69,9 @@
           
         </td>
         <%  if order.has_paid?(order) %>
-        <td>已經繳費</td>
+        <td>是</td>
         <% else %>
-        <td>尚未繳費</td>
+        <td>否</td>
         <% end %>
         <td>
           <% if !order.has_paid && (can? :close, order) %>

@@ -67,6 +67,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    curb (0.8.8)
     debug_inspector (0.0.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -242,6 +243,7 @@ DEPENDENCIES
   carrierwave
   ckeditor
   coffee-rails (~> 4.1.0)
+  curb
   devise (~> 3.4.0)
   figaro
   filepicker-rails

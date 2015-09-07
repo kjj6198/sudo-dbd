@@ -1,9 +1,14 @@
+require "slack_outhook"
+
 class MenusController < ApplicationController
   before_action :auth_google_user!, except: [:index, :show, :bill, :over]
   before_action :find_menu, only: [:show, :bill, :over]
   before_action :find_orders, only: [:show, :bill, :over]
+  include SlackOutHook
+  
   def index
     @menus = Menu.includes(:user, :restaurant).order(end_time: :asc, start_time: :desc);
+    send_msg_to_slack("shit")
   end
 
   def over
@@ -38,6 +43,7 @@ class MenusController < ApplicationController
   end
   
   private
+
   
   def find_menu
     @menu = Menu.includes(:restaurant, :orders, :user).find(params[:id])
