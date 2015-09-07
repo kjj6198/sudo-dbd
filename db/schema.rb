@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150906172822) do
+ActiveRecord::Schema.define(version: 20150907041518) do
 
   create_table "menus", force: :cascade do |t|
     t.string   "name"
@@ -33,13 +33,14 @@ ActiveRecord::Schema.define(version: 20150906172822) do
     t.string   "name"
     t.string   "food_name"
     t.integer  "price"
-    t.boolean  "has_paid",   default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "has_paid",       default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "menu_id"
     t.string   "note"
     t.integer  "user_id"
-    t.integer  "change",     default: 0
+    t.integer  "change",         default: 0
+    t.boolean  "company_afford"
   end
 
   add_index "orders", ["menu_id"], name: "index_orders_on_menu_id"

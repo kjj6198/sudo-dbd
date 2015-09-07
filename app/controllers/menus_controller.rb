@@ -1,6 +1,7 @@
 class MenusController < ApplicationController
   before_action :auth_google_user!, except: [:index, :show, :bill, :over]
   before_action :find_menu, only: [:show, :bill, :over]
+  before_action :find_orders, only: [:show, :bill, :over]
   def index
     @menus = Menu.includes(:user, :restaurant).order(end_time: :asc, start_time: :desc);
   end
@@ -37,8 +38,13 @@ class MenusController < ApplicationController
   end
   
   private
+  
   def find_menu
     @menu = Menu.includes(:restaurant, :orders, :user).find(params[:id])
+  end
+
+  def find_orders
+    @orders = @menu.orders.order(:food_name)
   end
 
   def menu_param

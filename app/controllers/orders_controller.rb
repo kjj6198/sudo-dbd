@@ -21,10 +21,11 @@ class OrdersController < ApplicationController
  end
 
  def update
-   @order.update_attribute(:change, params[:change].to_i)
+   @order.update(params[:order].permit(:change, :company_afford))
+   # @order.update_attribute(:company_afford, params[:company_afford])
    respond_to do |format|
-    format.js { render nothing: true } 
-  end
+     format.js { render nothing: true } 
+   end
  end
 
  def close

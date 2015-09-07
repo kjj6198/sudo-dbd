@@ -11,18 +11,32 @@
   <table class="dbd_table">
     <thead>
       <tr>
-        <td>姓名</td>
-        <td>菜名</td>
-        <td>價格</td>
-        <td>備註</td>
-        <td>找錢</td>
-        <td>是否結清</td>
-        <td></td>
+        <% if current_user && @menu.user == current_user %>
+        <th>公司買單</th>
+        <% end %>
+        <th>姓名</th>
+        <th>菜名</th>
+        <th>價格</th>
+        <th>備註</th>
+        <th>找錢</th>
+        <th>是否結清</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <% @menu.orders.each do|order| %>
-      <tr>
+      <% @orders.each do|order| %>
+      <tr data-purl="<%= menu_order_url(@menu, order) %>">
+        <% if can? :update, order %>
+        <td>
+        <% if order.company_afford %>
+          <input type="checkbox" class="orderCompanyAffordCheckbox" id="<%= "afford#{order.id}" %>" checked="checked"/>
+          <% else %>
+          <input type="checkbox" class="orderCompanyAffordCheckbox" id="<%= "afford#{order.id}" %>" />
+        <% end %>
+          
+          <label for="<%= "afford#{order.id}" %>"></label>
+        </td>
+        <% end %>
         <td><%= order.user.username %></td>
         <td><%= order.food_name %></td>
         <td><%= order.price %></td>
@@ -31,7 +45,7 @@
         </td>
         <td class="change_column">
           <% if !order.has_paid && (can? :update, order) %>
-          <input data-purl="<%= menu_order_url(@menu, order) %>" data-origin="<%= order.change %>" type="number" value="<%= order.change %>" id="<%= "orderChangeInput#{order.id}" %>" class="change_input orderChangeInput">
+          <input type="number" value="<%= order.change %>" id="<%= "orderChangeInput#{order.id}" %>" class="change_input orderChangeInput">
           <% else %>
           <%= order.change %>
           <% end %>
@@ -49,7 +63,7 @@
           </div>
           <% end %>
           <% if can? :destroy, order %>
-          <%= link_to menu_order_path(@menu, order), method: :delete, class:"delete_option" do %>
+          <%= link_to menu_order_path(@menu, order), method: :delete, class: "delete_option" do %>
           <span class="dbd_icon--selected dbd_icon-remove">刪除</span>
           <% end %>
           <% end %>

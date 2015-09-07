@@ -6,7 +6,7 @@ json.user do |json|
 end
 
 json.orders do |json|
-    json.array! @menu.orders do |order|
+    json.array! @orders do |order|
         json.ordere_id order.user.id
         json.ordere_name order.user.username
         json.food_name order.food_name

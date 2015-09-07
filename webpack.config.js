@@ -7,7 +7,7 @@ module.exports = {
     landing_page: './js/entry/landing_page.js',
     restaurants_index: './js/entry/restaurants_index.js',
     menu_show: './js/entry/menu_show.js',
-    about: './js/entry/about.js'
+    about: './js/entry/about.js',
     menu_bill: './js/entry/menu_bill.js'
   },
   output: {
