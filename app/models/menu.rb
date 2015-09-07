@@ -9,6 +9,7 @@ class Menu < ActiveRecord::Base
   belongs_to :user
   belongs_to :restaurant
   after_create :created_slack_notification
+  after_update :updated_slack_notification
 
   def remain_time
       mins = (self.end_time - DateTime.now).to_i/60
@@ -39,6 +40,19 @@ class Menu < ActiveRecord::Base
             ```".split(/\n/).map {|line| line.gsub(/^\s+| \s$/, '')}.join("\n")
     send_msg_to_slack @msg  
     send_msg_to_slack "菜單: #{self.restaurant.filepicker_url}"
+  end
+
+  def updated_slack_notification
+    if self.expired?
+      @msg = "今天訂的`#{self.restaurant.name}`截止囉！
+              沒訂到的哭哭可憐喔 :crydenny:
+              記得去看一下帳單上有沒有錯:
+              #{ENV['HOME_URL']}#{url_helpers.bill_menu_path(self)}
+             ".split(/\n/).map {|line| line.gsub(/^\s+| \s$/, '')}.join("\n")
+      send_msg_to_slack @msg
+    end
+    
+    
   end
 
 end
