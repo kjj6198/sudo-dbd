@@ -8,6 +8,11 @@
 </div>
 
 <h2 id="page_title">Order</h2>
+<div class="row">
+  <div id="over">
+    <%= link_to  "提前結束訂餐", over_menu_path(@menu),method: :patch %>
+  </div>
+</div>
 <table class="dbd_table">
   <thead>
     <tr>
@@ -25,7 +30,7 @@
   </tbody>
 </table>
 <%= render 'partial/order_form' %>
-</div>
+
 <script>
 <% if notice != nil %>
 Materialize.toast('<%= flash[:notice] %>', 4000,'rounded')

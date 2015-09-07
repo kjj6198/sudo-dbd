@@ -15,7 +15,6 @@ class Menu < ActiveRecord::Base
     self.unexpired.order(end_time: :asc)+self.expired.order(end_time: :desc)
   end
 
-
   def expired?
       self.end_time - DateTime.now <= 0
   end

@@ -1,8 +1,13 @@
 class MenusController < ApplicationController
-  before_action :auth_google_user!, except: [:index, :show, :bill]
-  before_action :find_menu, only: [:show, :bill]
+  before_action :auth_google_user!, except: [:index, :show, :bill, :over]
+  before_action :find_menu, only: [:show, :bill, :over]
   def index
     @menus = Menu.includes(:user, :restaurant).order(end_time: :asc, start_time: :desc);
+  end
+
+  def over
+    @menu.update_attribute(:end_time, DateTime.now)
+    redirect_to action: :bill
   end
 
   def show

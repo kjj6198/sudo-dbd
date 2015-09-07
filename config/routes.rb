@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :restaurants
   
   resources :menus do
+    member do
+      patch :over
+    end
   	resources :orders do
         member do
             patch :close

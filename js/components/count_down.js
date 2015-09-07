@@ -25,7 +25,7 @@ setInterval(function() {
         return countdown(timer);
     }).
     filter(function(timer) {
-        displayTimer(timer)
+        displayTimer(timer);
         return (timer.minutes !== 0 || timer.seconds !== 0);
     })
 }, 1000);
