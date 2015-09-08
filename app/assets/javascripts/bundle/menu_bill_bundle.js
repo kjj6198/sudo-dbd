@@ -50,6 +50,22 @@
 	var orderFoodInputs = Rx.Observable.fromEvent($(".orderFoodNameInput"), "input");
 	var orderPriceInputs = Rx.Observable.fromEvent($(".orderPriceInput"), "input");
 	var orderNoteInputs = Rx.Observable.fromEvent($(".orderNoteInput"), "input");
+	var orderHasPaidCheckbox = Rx.Observable.fromEvent($(".orderHasPaidCheckbox"), "change");
+
+	orderHasPaidCheckbox.debounce(500).
+	forEach(function(check) {
+	    var $target = $(check.currentTarget);
+	    
+	    var checkVal = $target.prop("checked");
+	    var url = $target.parents("tr").data("purl");
+	    updateChange(url, "has_paid", checkVal);
+	    if (checkVal) {
+	        updateWithoutFlash(url, "change", 0);    
+	        var cInputId = "orderChangeInput"+$target.attr("id").match(/\d+/)[0];
+	        $("#"+cInputId).val(0);
+	    };
+	    
+	});
 
 	orderNoteInputs.debounce(1000).
 	map(getInputStream).
@@ -105,6 +121,22 @@
 
 	function emptyValOrNot(inputObj) {
 	    return inputObj.val !== "";
+	}
+
+	function updateWithoutFlash(url, column, val) {
+	    $.ajax({
+	        url: url,
+	        data: "order[" + column + "]=" + val,
+	        type: "PATCH",
+	        dataType: 'text',
+	        success: function(msg) {
+	            console.log('success update' + url + ' with value ' + val);
+	        },
+	        error: function(xhr, ajaxOptions, thrownError) {
+	            console.log(xhr.status);
+	            console.log(thrownError);
+	        }
+	    })
 	}
 
 	function updateChange(url, column, val) {
