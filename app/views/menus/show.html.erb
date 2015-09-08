@@ -6,7 +6,6 @@
     </div>
   </div>
 </div>
-
 <h2 id="page_title">Order</h2>
 <% if can? :over, @menu %>
 <div class="row">
@@ -18,24 +17,90 @@
 <table class="dbd_table">
   <thead>
     <tr>
-      <td>姓名</td>
-      <td>菜名</td>
-      <td>價格</td>
-      <td>備註</td>
-      <td>是否結清</td>
-      <td></td>
+      <% if current_user && @menu.user == current_user %>
+      <th>公司買單</th>
+      <% end %>
+      <th>姓名</th>
+      <th>菜名</th>
+      <th>價格</th>
+      <th>備註</th>
+      <th>找錢</th>
+      <th>是否結清</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <%= render @orders %>
-    
+    <% @orders.each do|order| %>
+    <tr data-purl="<%= menu_order_url(@menu, order) %>">
+      <% if (can? :update, order) %>
+      <td>
+        <% if order.company_afford %>
+        <input type="checkbox" class="orderCompanyAffordCheckbox" id="<%= "afford#{order.id}" %>" checked="checked"/>
+        <% else %>
+        <input type="checkbox" class="orderCompanyAffordCheckbox" id="<%= "afford#{order.id}" %>" />
+        <% end %>
+        
+        <label for="<%= "afford#{order.id}" %>"></label>
+      </td>
+      <% end %>
+      <td><%= order.user.username %></td>
+      <% if can? :update, order %>
+      <td>
+        <input type="text" id="<%= "foodName#{order.id}" %>" class="orderFoodNameInput" value="<%= order.food_name %>">
+      </td>
+      <td>
+        <input type="text" id="<%= "price#{order.id}" %>" class="orderPriceInput" value="<%= order.price %>">
+      </td>
+      <td>
+        <input type="text" id="<%= "note#{order.id}" %>" class="orderNoteInput" value="<%= order.note %>">
+      </td>
+      <% else %>
+      <td>
+        <%= order.food_name %>
+      </td>
+      <td>
+        <%= order.price %>
+      </td>
+      <td>
+        <%= order.note %>
+      </td>
+      <% end %>
+      
+      <td class="change_column">
+        <% if !order.has_paid && (can? :update, order) %>
+        <input type="number" value="<%= order.change %>" id="<%= "orderChangeInput#{order.id}" %>" class="change_input orderChangeInput">
+        <% else %>
+        <%= order.change %>
+        <% end %>
+        
+      </td>
+      <%  if order.has_paid?(order) %>
+      <td>是</td>
+      <% else %>
+      <td>否</td>
+      <% end %>
+      <td>
+        <% if !order.has_paid && (can? :close, order) %>
+        <div>
+          <%= link_to "已付款", close_menu_order_path(@menu, order), method: :patch %>
+        </div>
+        <% end %>
+        <% if can? :destroy, order %>
+        <%= link_to menu_order_path(@menu, order), method: :delete, class: "delete_option" do %>
+        <span class="dbd_icon--selected dbd_icon-remove">刪除</span>
+        <% end %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
   </tbody>
 </table>
 <%= render 'partial/order_form' %>
-
 <script>
 <% if notice != nil %>
 Materialize.toast('<%= flash[:notice] %>', 4000,'rounded')
 <% end %>
-
 </script>
+<%= content_for :javascripts do %>
+<%= javascript_include_tag 'bundle/menu_bill_bundle'%>
+<% end %>
