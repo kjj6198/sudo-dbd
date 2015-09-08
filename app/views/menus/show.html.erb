@@ -8,11 +8,13 @@
 </div>
 
 <h2 id="page_title">Order</h2>
+<% if can? :over, @menu %>
 <div class="row">
   <div id="over">
     <%= link_to  "提前結束訂餐", over_menu_path(@menu),method: :patch , class: "dbd_button"%>
   </div>
 </div>
+<% end %>
 <table class="dbd_table">
   <thead>
     <tr>

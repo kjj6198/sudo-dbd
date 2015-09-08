@@ -89,7 +89,12 @@
       <% end %>
     </tbody>
   </table>
+  
 </div>
+
+<% if @menu.user == current_user %>
+    <%= render 'partial/order_form' %>  
+  <% end %>
 <%= content_for :javascripts do %>
 <%= javascript_include_tag 'bundle/menu_bill_bundle'%>
 <% end %>
