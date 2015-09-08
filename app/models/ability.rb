@@ -11,6 +11,10 @@ class Ability
             can :manage, :all
         end
         basic_read_only
+        can :over, Menu do |menu|
+          menu.user_id == user.id
+        end
+
         can :create, Restaurant
         can :create, Order
         can :close, Order do |order|

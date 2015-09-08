@@ -1,5 +1,3 @@
-require 'net/http'
-require 'json'
 class OrdersController < ApplicationController
  before_action :find_menu
  before_action :find_order, only: [:destroy, :close, :update]
