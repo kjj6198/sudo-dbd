@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
    @order = @menu.orders.new(order_params)
    @order.user_id = current_user.id
    
-   if @order.can_save?
+   if @order.can_save? || @order.user == current_user
        @order.save
        redirect_to menu_path(@menu), :notice => '成功新增訂餐！請記得繳費'
    else
@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
  private 
 
  def patch_order_params
-   params[:order].permit(:change, :company_afford, :food_name,:price, :note)
+   params[:order].permit(:change, :company_afford, :food_name,:price, :note, :has_paid)
  end
  
  def order_params

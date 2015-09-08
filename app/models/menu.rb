@@ -9,8 +9,8 @@ class Menu < ActiveRecord::Base
   belongs_to :user
   belongs_to :restaurant
   after_create :created_slack_notification
-  # after_save :countdown_check
-  
+  after_save :countdown_check
+    
   def residual_time_hash
     total_secs = (self.end_time - DateTime.now)
     {
@@ -30,11 +30,21 @@ class Menu < ActiveRecord::Base
   end
 
   def expired?
-      self.end_time - DateTime.now <= 0
+      self.end_time <= DateTime.now 
   end
   
   private 
   
+  def countdown_check
+    msg = "今天訂的`#{self.restaurant.name}`截止囉！
+              沒訂到的哭哭可憐喔 :crydenny:
+              記得去看一下帳單上有沒有錯:
+              #{ENV['HOME_URL']}#{url_helpers.bill_menu_path(self)}
+             ".split(/\n/).map {|line| line.gsub(/^\s+| \s$/, '')}.join("\n")
+    cur_end_time = self.end_time.to_s
+    DbdWorker.perform_at(self.end_time, self.id, cur_end_time, msg)
+  end  
+
   def created_slack_notification
     @msg = "有新的DBD開始囉！\n
             ```

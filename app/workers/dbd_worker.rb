@@ -1,11 +1,14 @@
 require "slack_outhook"
 
 class DbdWorker
-  # include Sidekiq::Worker
-  # include SlackOutHook
+  include Sidekiq::Worker
+  include SlackOutHook
   
-  def self.perform_countdown(id, remain_time)
-    puts "id is : #{id}" 
-    puts "remain time is :::: #{remain_time}"
+  def perform(menu_id, cur_end_time, msg)
+      menu = Menu.find(menu_id)
+      restaurant = menu.restaurant
+      if menu.end_time.to_s == cur_end_time
+        send_msg_to_slack msg
+      end
   end
 end

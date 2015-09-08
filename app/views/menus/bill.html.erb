@@ -68,17 +68,20 @@
           <% end %>
           
         </td>
-        <%  if order.has_paid?(order) %>
-        <td>是</td>
-        <% else %>
-        <td>否</td>
-        <% end %>
+        
         <td>
-          <% if !order.has_paid && (can? :close, order) %>
-          <div>
-            <%= link_to "已付款", close_menu_order_path(@menu, order), method: :patch %>
-          </div>
+          <% if can? :close, order %>
+            <% if order.has_paid %>
+            <input type="checkbox" class="orderHasPaidCheckbox" id="<%= "paid#{order.id}" %>" checked="checked"/>
+            <% else %>
+            <input type="checkbox" class="orderHasPaidCheckbox" id="<%= "paid#{order.id}" %>" />
+            <% end %>
+            <label for="<%= "paid#{order.id}" %>"></label>
+          <% else %>
+          <%= order.has_paid %>
           <% end %>
+        </td>
+        <td>
           <% if can? :destroy, order %>
           <%= link_to menu_order_path(@menu, order), method: :delete, class: "delete_option" do %>
           <span class="dbd_icon--selected dbd_icon-remove">刪除</span>
@@ -91,10 +94,9 @@
   </table>
   
 </div>
-
 <% if @menu.user == current_user %>
-    <%= render 'partial/order_form' %>  
-  <% end %>
+<%= render 'partial/order_form' %>
+<% end %>
 <%= content_for :javascripts do %>
 <%= javascript_include_tag 'bundle/menu_bill_bundle'%>
 <% end %>
