@@ -6,7 +6,6 @@ module SlackOutHook
         token_url = ENV['SLACK_WEBHOOK_URL']
         json_data = {
             text: msg, 
-            channel: "#dbdtest", 
             username: "dbder"
         }.to_json
         http = Curl.post(token_url, json_data)

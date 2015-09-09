@@ -36,7 +36,7 @@ class Menu < ActiveRecord::Base
   private 
   
   def countdown_check
-    msg = "今天訂的`#{self.restaurant.name}`截止囉！
+    msg = "今天訂的#{self.restaurant.name}截止囉！
               沒訂到的哭哭可憐喔 :crydenny:
               記得去看一下帳單上有沒有錯:
               #{ENV['HOME_URL']}#{url_helpers.bill_menu_path(self)}
