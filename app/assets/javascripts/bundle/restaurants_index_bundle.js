@@ -49,7 +49,22 @@
 	  $('.modal-trigger').leanModal();	
 	});
 
+	$restaurants = $('.rank_area');
 
+	$.each($restaurants, function(index, val) {
+	  var amount = parseInt($(this).data("rank"));
+	  displayStar(amount, $(this));
+	});
+
+
+	function displayStar(amount,container) {
+	  template = "<span class='dbd_icon-star dbd_selected'></i>";
+	  
+	  for( var i = 0; i < amount; i++ ) { //denny hate this
+	  	container.append(template);
+	  }
+
+	}
 
 
 /***/ },
@@ -10490,7 +10505,9 @@
 	        currentQueue = queue;
 	        queue = [];
 	        while (++queueIndex < len) {
-	            currentQueue[queueIndex].run();
+	            if (currentQueue) {
+	                currentQueue[queueIndex].run();
+	            }
 	        }
 	        queueIndex = -1;
 	        len = queue.length;
@@ -10542,7 +10559,6 @@
 	    throw new Error('process.binding is not supported');
 	};
 
-	// TODO(shtylman)
 	process.cwd = function () { return '/' };
 	process.chdir = function (dir) {
 	    throw new Error('process.chdir is not supported');

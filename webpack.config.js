@@ -8,7 +8,8 @@ module.exports = {
     restaurants_index: './js/entry/restaurants_index.js',
     menu_show: './js/entry/menu_show.js',
     about: './js/entry/about.js',
-    menu_bill: './js/entry/menu_bill.js'
+    menu_bill: './js/entry/menu_bill.js',
+    restaurant_show: './js/entry/restaurant_show.js'
   },
   output: {
     path: path.join(__dirname, 'app', 'assets', 'javascripts', 'bundle'),

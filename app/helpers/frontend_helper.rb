@@ -7,6 +7,10 @@ module FrontendHelper
         datetime.strftime("%I:%M %p")
     end
 
+    def render_time_with_date(datetime)
+        datetime.strftime("%m/%d %I:%M %p")
+    end
+
     def duration_time(endtime)
         curTime = (endtime-DateTime.now).to_i
         if curTime <= 0 

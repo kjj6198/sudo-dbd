@@ -1,0 +1,6 @@
+<%= simple_form_for ([@restaurant, @restaurant.comments.build]) do |f| %>
+  <%= f.input :body, label: '評論', wrapper_html: {class: "dbd_input_field"} %>
+  <%= f.input :rank %>
+  <%= f.submit "送出", class: "dbd_button" %>
+
+ <% end %>

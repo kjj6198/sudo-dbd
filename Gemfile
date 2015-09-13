@@ -29,7 +29,7 @@ gem 'kaminari'
 
 gem 'curb'
 
-gem 'sidekiq'
+# gem 'sidekiq'
 
 
 group :development, :test do

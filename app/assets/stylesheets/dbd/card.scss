@@ -49,3 +49,25 @@
   font-size: 1rem;
   letter-spacing: 3.3px;
 }
+
+.rank {
+  top: 25%;
+  font-size: 1.2rem;
+  line-height: 42px;
+  text-align: center;
+  background: #ccc;
+  color: #fff;
+}
+
+.rank_area {
+  display: inline-block;
+  
+  font-size: 1.5rem;
+
+  cursor: pointer;
+
+}
+
+.comment_rank {
+  display: none;
+}
