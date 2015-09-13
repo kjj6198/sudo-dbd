@@ -12,6 +12,9 @@
         <%= link_to "發起點餐", new_menu_path %></li>
         <li><%= link_to "餐廳列表", restaurants_path %>
         </li>
+        <% if params[:controller] == 'menus' && params[:action] == "bill" %>
+          <li><%= link_to "評論餐廳", restaurant_path(Menu.find(params[:id]).restaurant) %></li>
+        <% end %>
     </ul>
 </div>
 <% end %>
