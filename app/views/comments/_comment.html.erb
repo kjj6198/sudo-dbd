@@ -1,0 +1,10 @@
+<li class="collection-item avatar">
+<span class="circle rank"><%= comment.rank %></span>
+
+<% if comment.user.present? %>
+  <span class="title"><%= comment.user.username %></span>
+<% end %>
+
+<p><%= comment.body %></p>
+<span class="secondary-content"><%= render_time_with_date(comment.created_at) %></span>
+</li>

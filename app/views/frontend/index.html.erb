@@ -54,7 +54,14 @@
           <td class="countDown">
             <%= duration_time(menu.end_time) %>
           </td>
-          <td><%= link_to '我要點餐', menu_path(menu) %></td>
+          <td>
+          <% if menu.expired? %>
+            <%= link_to "帳單",  bill_menu_path(menu)%>
+          <% else %>
+            <%= link_to '我要點餐', menu_path(menu) %>
+          <% end %>
+          
+          </td>
         </tr>
         <% end %>
       </tbody>

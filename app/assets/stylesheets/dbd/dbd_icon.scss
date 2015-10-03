@@ -38,6 +38,10 @@ $dbd_icon_map: (
   }	
 }
 
+.dbd_selected:before {
+  color: #ff8a78!important;
+}
+
 %icon_color {
   color: #ff8a78;
 }
@@ -49,3 +53,6 @@ $dbd_icon_map: (
   }
 }
 
+.dbd_icon-star:before {
+  color: #aaa;
+}

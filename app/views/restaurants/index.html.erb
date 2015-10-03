@@ -5,16 +5,13 @@
   <div class="row">
     <% @restaurants.each do |rest| %>
     <div class="col s12 m6 l4">
+      <%= link_to restaurant_path(rest) do %>
       <div class="restaurant_card center">
-        <a class="modal-trigger" href="#<%= rest.id %>">
-          <h6 class="card_title"><%= rest.name %></h6>
-        </a>
+        <h6 class="card_title"><%= rest.name %></h6>
         <h6 class="phone"><%= rest.phone %></h6>
-        <span class="dbd_icon-star dbd_icon--selected"></span>
-        <span class="dbd_icon-star dbd_icon--selected"></span>
-        <span class="dbd_icon-star dbd_icon--selected"></span>
-        <span class="dbd_icon-star dbd_icon--selected"></span>
-        <span class="dbd_icon-star dbd_icon--selected"></span>
+        <div class="rank_area" data-rank="<%= rest.rank %>">
+          
+        </div>
         <% if can? :update, rest %>
         <div class="card_action">
           <%= link_to edit_restaurant_path(rest) do%>
@@ -26,6 +23,7 @@
         </div>
         <% end %>
       </div>
+      <% end %>
       <div class="modal" id="<%= rest.id %>">
         <div class="modal-content">
           <img style="max-width:100%; max-height:50%;" src="<%= rest.filepicker_url %>" alt="">

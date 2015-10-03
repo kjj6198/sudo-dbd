@@ -6,7 +6,8 @@ map(function(element) {
 }).
 filter(activeOrNot);
 
-var timers = $activeCountDowns.map(function(activeCountDown) {
+var timers = $activeCountDowns.
+map(function(activeCountDown) {
     var matchedText = activeCountDown.text().
     replace(/\s/g, '').
     match(/(\d+):(\d+)/);
@@ -24,7 +25,7 @@ setInterval(function() {
         return countdown(timer);
     }).
     filter(function(timer) {
-        displayTimer(timer)
+        displayTimer(timer);
         return (timer.minutes !== 0 || timer.seconds !== 0);
     })
 }, 1000);

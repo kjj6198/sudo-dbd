@@ -1,9 +1,25 @@
 <div class="row">
   <div class="col s12 m12 l12">
-  	<h3>菜單</h3>
+  	<h3 class="center"><%= @restaurant.name %></h3>
     <%= image_tag @restaurant.filepicker_url %>
   </div>
   <ul>
   	<li>電話: <%= @restaurant.phone %></li>
   </ul>
+  
+  
+  <ul class="collection">
+    <%= render @restaurant.comments.order(created_at: :desc) %>
+  </ul>
+  <div class="rank_area">
+  	<span class="dbd_icon-star"></span>
+    <span class="dbd_icon-star"></span>
+    <span class="dbd_icon-star"></span>
+    <span class="dbd_icon-star"></span>
+    <span class="dbd_icon-star"></span>
+  </div>
+  <%= render "partial/comment_form" %>
 </div>
+
+<%= content_for :javascripts %>
+<%= javascript_include_tag "bundle/restaurant_show_bundle.js" %>

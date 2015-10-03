@@ -12,7 +12,9 @@
         <ul class="right">
           <% if !user_signed_in? %>
           <li>          <%= link_to "快速登入", user_omniauth_authorize_path(:google_oauth2) %></li>
+          <li><%= link_to '關於我們', about_path %></li>
           <% else %>
+          <li><%= link_to '關於我們', about_path %></li>
           <li><%= link_to '登出', destroy_user_session_path, method: :delete %></li>
           <% end %>
         </ul>

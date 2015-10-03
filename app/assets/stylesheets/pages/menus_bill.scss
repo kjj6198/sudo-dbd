@@ -1,4 +1,12 @@
 #menus_bill {
+    input[type="text"] {
+        width: 5rem;
+        margin: 0 ;
+        height: 2rem;
+        &:focus {
+            border-bottom: #ffbab1 solid 1px;
+        }
+    }
     .dbd_table {
         *{
             text-align: center ;    

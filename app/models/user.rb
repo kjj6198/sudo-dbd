@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   # }
   has_many :menus, dependent: :destroy
   has_many :orders, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(:email => data["email"]).first

@@ -28,5 +28,6 @@ module SudoDbd
     config.filepicker_rails.api_key = ENV["FILE_PICKER_API_KEY"]
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
     config.assets.enabled = true
+    config.autoload_paths << Rails.root.join('lib')    
   end
 end

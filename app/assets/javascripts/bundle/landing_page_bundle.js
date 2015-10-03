@@ -10528,7 +10528,9 @@
 	        currentQueue = queue;
 	        queue = [];
 	        while (++queueIndex < len) {
-	            currentQueue[queueIndex].run();
+	            if (currentQueue) {
+	                currentQueue[queueIndex].run();
+	            }
 	        }
 	        queueIndex = -1;
 	        len = queue.length;
@@ -10580,7 +10582,6 @@
 	    throw new Error('process.binding is not supported');
 	};
 
-	// TODO(shtylman)
 	process.cwd = function () { return '/' };
 	process.chdir = function (dir) {
 	    throw new Error('process.chdir is not supported');
@@ -10600,7 +10601,8 @@
 	}).
 	filter(activeOrNot);
 
-	var timers = $activeCountDowns.map(function(activeCountDown) {
+	var timers = $activeCountDowns.
+	map(function(activeCountDown) {
 	    var matchedText = activeCountDown.text().
 	    replace(/\s/g, '').
 	    match(/(\d+):(\d+)/);
@@ -10618,7 +10620,7 @@
 	        return countdown(timer);
 	    }).
 	    filter(function(timer) {
-	        displayTimer(timer)
+	        displayTimer(timer);
 	        return (timer.minutes !== 0 || timer.seconds !== 0);
 	    })
 	}, 1000);

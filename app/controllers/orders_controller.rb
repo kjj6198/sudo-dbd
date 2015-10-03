@@ -1,12 +1,12 @@
 class OrdersController < ApplicationController
  before_action :find_menu
- before_action :find_order, only: [:destroy, :close]
+ before_action :find_order, only: [:destroy, :close, :update]
  authorize_resource :order
  def create
    @order = @menu.orders.new(order_params)
    @order.user_id = current_user.id
    
-   if @order.can_save?
+   if @order.can_save? || @order.user == current_user
        @order.save
        redirect_to menu_path(@menu), :notice => '成功新增訂餐！請記得繳費'
    else
@@ -20,12 +20,24 @@ class OrdersController < ApplicationController
      redirect_to @menu
  end
 
+ def update
+   @order.update(patch_order_params)
+   respond_to do |format|
+     format.js { render nothing: true } 
+   end
+ end
+
  def close
+   @order.update_attribute(:change, 0)
    @order.update_attribute(:has_paid, true)
    redirect_to @menu
  end
 
  private 
+
+ def patch_order_params
+   params[:order].permit(:change, :company_afford, :food_name,:price, :note, :has_paid)
+ end
  
  def order_params
      params[:order].permit(:user_id, :name,:food_name,:price, :has_paid, :note)
