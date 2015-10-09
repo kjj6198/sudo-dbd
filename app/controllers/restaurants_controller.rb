@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :auth_google_user!, only: [:new, :create]
+  before_action :auth_google_user!, only: [:new, :create,:update,:destroy]
   authorize_resource :restaurant
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
 
