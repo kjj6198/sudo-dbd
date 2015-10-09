@@ -25,7 +25,7 @@ class MenusController < ApplicationController
   end
 
   def bill
-
+    @restaurant = @menu.restaurant
   end
 
   def new

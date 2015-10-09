@@ -9,7 +9,8 @@ module.exports = {
     menu_show: './js/entry/menu_show.js',
     about: './js/entry/about.js',
     menu_bill: './js/entry/menu_bill.js',
-    restaurant_show: './js/entry/restaurant_show.js'
+    restaurant_show: './js/entry/restaurant_show.js',
+    order_new: './js/entry/order_new.js'
   },
   output: {
     path: path.join(__dirname, 'app', 'assets', 'javascripts', 'bundle'),

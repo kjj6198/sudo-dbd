@@ -8,7 +8,7 @@ module FrontendHelper
     end
 
     def render_time_with_date(datetime)
-        datetime.strftime("%m/%d %I:%M %p")
+        datetime.strftime("%m/%d")
     end
 
     def duration_time(endtime)

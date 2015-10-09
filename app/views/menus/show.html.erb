@@ -2,7 +2,7 @@
 <div id="menus_show">
   <div class="row">
     <div id="menu_img_container">
-      <%=  image_tag @restaurant.filepicker_url , id: "menu_img"%>
+      <%=  image_tag @restaurant.filepicker_url , id: "menu_img", class: "materialboxed" %>
     </div>
   </div>
 </div>
@@ -100,6 +100,9 @@
 <% if notice != nil %>
 Materialize.toast('<%= flash[:notice] %>', 4000,'rounded')
 <% end %>
+$(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
 </script>
 <%= content_for :javascripts do %>
 <%= javascript_include_tag 'bundle/menu_bill_bundle'%>

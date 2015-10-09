@@ -13,16 +13,13 @@
   margin-right: 1%;
   margin-bottom: 1%;
 
-  background-color: #715251;
+  background-color: #ffbab1;
   overflow: hidden;
 
   &:nth-child(2n) {
   	margin-right: 0;
   }
-  &:nth-child(4n-3), &:nth-child(4n) {
-	background-color: #ffbab1;
-  }
-   
+     
   .card_title {
   	text-align: center;
   	font-size: 0.5rem;

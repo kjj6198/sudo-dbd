@@ -44,47 +44,56 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	$("#comment_rank").hide();
-	// Default Rank
-	var DEFAULT_RANK = 0;
-	var rankInput = document.getElementById('comment_rank');
-	rankInput.value = DEFAULT_RANK;
+	
+	var restaurantSelect = document.getElementById('menu_restaurant_id');
+	var firstId = restaurantSelect.value;
+	getRestaurantData(firstId);
+
+	$(restaurantSelect).on('change', function(event) {
+		event.preventDefault();
+		var restaurantId = this.value;
+		
+		getRestaurantData(restaurantId);
+	});
 
 
-	var $rankPoint = $(".rank");
+	function getRestaurantData(id) {
+	  var url = "http://" + location.host + "/restaurants";
+	  $.ajax({
+	  	url: url + "/" + id,
+	  	type: 'GET',
+	  	dataType: 'json',
+	  })
+	  .done(function(result) {
+		  renderInfo(result.image_url, result.intro, result.name, result.id);
 
-	function getColor(number) {
-	  var color = ["#aaa", "#FFAA0E","#FFF000","#54FF3C", "#FF001C"];
-	  return color[number - 1];
-	}
-
-	function getCount() {
-	 return $('.rank_area .dbd_selected').length;
-	}
-
-	$rankPoint.map(function(index, elem) {
-		return {
-		  container: elem,
-		  rank: parseInt($(elem).text())
-	}})
-	  .each(function(index, el) {
-		  var color = getColor(el.rank);
-		  $(el.container).css({
-		    'background-color': color,
-		  });
+	  })
+	  .fail(function() {
+		  console.log("error");
 	  });
 
-	$(".rank_area .dbd_icon-star").each(function(index, el) {
-	  $(el).on('click',function(){
-	    var count = parseInt(getCount.call($(this))) || 0;
+	}
 
-	  	$(this).addClass('dbd_selected');
-	  	$(this).prevAll().addClass('dbd_selected');
-	  	$(this).nextAll().removeClass('dbd_selected');
+	function renderInfo(image_url, introduction, name, id) {
+	  var imageContainer = document.getElementById('restaurant_image');
+	  var introContainer = document.getElementById('intro');
+	  var titleContainer = document.getElementById('restaurant_name');
+	  var linkContainer = document.getElementById('restaurant_link');
+	  var link = "http://" + location.host + "/restaurants" + '/' + id;
 
-	    $('#comment_rank').val(count);
-	  })
-	});
+	  linkContainer.setAttribute('href', link);
+	  imageContainer.setAttribute('src', image_url);
+	  
+	  $(titleContainer).text(name);
+	  if( introduction !== null) {
+	    $(introContainer).text(introduction);
+	  }
+	  else {
+	    $(introContainer).text('無');
+	  }
+	}
+
+
 
 /***/ }
 /******/ ]);
