@@ -7,7 +7,6 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all.order(rank: :desc)  	
     respond_to do |format|
       format.html
-      format.json {render json: @restaurants}
     end
   end  
 
@@ -47,7 +46,7 @@ class RestaurantsController < ApplicationController
   private 
 
   def restaurant_params
-    params.require(:restaurant).permit(:name,:phone, :filepicker_url)
+    params.require(:restaurant).permit(:name,:phone,:introduction ,:filepicker_url)
   end
 
   def find_restaurant

@@ -1,7 +1,7 @@
 class Restaurant < ActiveRecord::Base
   
   has_many :menus
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates :name, :phone, presence: true
 

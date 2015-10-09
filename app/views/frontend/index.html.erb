@@ -47,10 +47,12 @@
           <% else %>
             <td> </td>
           <% end %>
+          <% if menu.restaurant.present? %>
             <td><%= menu.restaurant.name %></td>
             <td data-starttime="<%= menu.start_time %>">
               <%= render_time(menu.start_time) %>
             </td>
+          <% end %>
           <td class="countDown">
             <%= duration_time(menu.end_time) %>
           </td>

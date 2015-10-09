@@ -40,5 +40,7 @@ class Ability
     can :read, Restaurant
     can :read, Menu
     can :bill, Menu
+    can :destroy, Restaurant
+    can :update, Restaurant
   end
 end

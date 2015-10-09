@@ -1,10 +1,11 @@
 <div class="row">
   <div class="col s12 m12 l12">
   	<h3 class="center"><%= @restaurant.name %></h3>
-    <%= image_tag @restaurant.filepicker_url %>
+    <div class="image"><%= image_tag @restaurant.filepicker_url %></div>
   </div>
   <ul>
-  	<li>電話: <%= @restaurant.phone %></li>
+  	<li>電話： <%= @restaurant.phone %></li>
+    <li>簡介： <br /><%= @restaurant.introduction %></li>
   </ul>
   
   

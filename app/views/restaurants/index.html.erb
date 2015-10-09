@@ -12,16 +12,16 @@
         <div class="rank_area" data-rank="<%= rest.rank %>">
           
         </div>
-        <% if can? :update, rest %>
+        
         <div class="card_action">
           <%= link_to edit_restaurant_path(rest) do%>
           <span class="dbd_icon-pencil"></span>
           <% end %>
-          <%= link_to restaurant_path(rest), method: :delete, data: {confirm: "Are you sure?"} do %>
+          <%= link_to restaurant_path(rest), method: :delete, data: {confirm: "請確認是否真的要刪除餐廳，一旦刪除就回不來了喔！"} do %>
           <span class="dbd_icon--selected dbd_icon-remove"></span>
           <% end %>
         </div>
-        <% end %>
+        
       </div>
       <% end %>
       <div class="modal" id="<%= rest.id %>">
