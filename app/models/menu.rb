@@ -42,7 +42,7 @@ class Menu < ActiveRecord::Base
               #{ENV['HOME_URL']}#{url_helpers.bill_menu_path(self)}
              ".split(/\n/).map {|line| line.gsub(/^\s+| \s$/, '')}.join("\n")
     cur_end_time = self.end_time.to_s
-    # DbdWorker.perform_at(self.end_time, self.id, cur_end_time, msg)
+    DbdWorker.perform_at(self.end_time, self.id, cur_end_time, msg)
   end  
 
   def created_slack_notification
