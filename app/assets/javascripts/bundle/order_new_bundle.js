@@ -44,34 +44,30 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	
+	'use strict';
+
 	var restaurantSelect = document.getElementById('menu_restaurant_id');
 	var firstId = restaurantSelect.value;
 	getRestaurantData(firstId);
 
-	$(restaurantSelect).on('change', function(event) {
-		event.preventDefault();
-		var restaurantId = this.value;
-		
-		getRestaurantData(restaurantId);
-	});
+	$(restaurantSelect).on('change', function (event) {
+	  event.preventDefault();
+	  var restaurantId = this.value;
 
+	  getRestaurantData(restaurantId);
+	});
 
 	function getRestaurantData(id) {
 	  var url = "http://" + location.host + "/restaurants";
 	  $.ajax({
-	  	url: url + "/" + id,
-	  	type: 'GET',
-	  	dataType: 'json',
-	  })
-	  .done(function(result) {
-		  renderInfo(result.image_url, result.intro, result.name, result.id);
-
-	  })
-	  .fail(function() {
-		  console.log("error");
+	    url: url + "/" + id,
+	    type: 'GET',
+	    dataType: 'json'
+	  }).done(function (result) {
+	    renderInfo(result.image_url, result.intro, result.name, result.id);
+	  }).fail(function () {
+	    console.log("error");
 	  });
-
 	}
 
 	function renderInfo(image_url, introduction, name, id) {
@@ -83,17 +79,14 @@
 
 	  linkContainer.setAttribute('href', link);
 	  imageContainer.setAttribute('src', image_url);
-	  
+
 	  $(titleContainer).text(name);
-	  if( introduction !== null) {
+	  if (introduction !== null) {
 	    $(introContainer).text(introduction);
-	  }
-	  else {
+	  } else {
 	    $(introContainer).text('無');
 	  }
 	}
-
-
 
 /***/ }
 /******/ ]);

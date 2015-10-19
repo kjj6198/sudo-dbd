@@ -44,13 +44,15 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	$('.card_reveal').each(function(){
-	  $(this).parent().on('mouseover', function(){
-	  	$(this).children('.card_reveal').css({left: 100 + "%"});
+	'use strict';
+
+	$('.card_reveal').each(function () {
+	  $(this).parent().on('mouseover', function () {
+	    $(this).children('.card_reveal').css({ left: 100 + "%" });
 	  });
-	  $(this).parent().on('mouseout', function(){
-	  	$(this).children('.card_reveal').css({left: 0});
-	  })
+	  $(this).parent().on('mouseout', function () {
+	    $(this).children('.card_reveal').css({ left: 0 });
+	  });
 	});
 
 /***/ }

@@ -18,6 +18,11 @@ module.exports = {
     filename: '[name]_bundle.js',
     publicPath: '/js/'
   },
+  module: {
+    loaders: [
+      { test: /\.js$/, loader:'babel-loader' },
+    ]
+  },
   plugins: [
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])

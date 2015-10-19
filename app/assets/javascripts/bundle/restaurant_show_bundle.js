@@ -44,6 +44,8 @@
 /* 0 */
 /***/ function(module, exports) {
 
+	"use strict";
+
 	$("#comment_rank").hide();
 	// Default Rank
 	var DEFAULT_RANK = 0;
@@ -53,37 +55,37 @@
 	var $rankPoint = $(".rank");
 
 	function getColor(number) {
-	  var color = ["#aaa", "#FFAA0E","#FFF000","#54FF3C", "#FF001C"];
+	  var color = ["#aaa", "#FFAA0E", "#FFF000", "#54FF3C", "#FF001C"];
 	  return color[number - 1];
 	}
 
 	function getCount() {
-	 return $('.rank_area .dbd_selected').length;
+	  return $('.rank_area .dbd_selected').length;
 	}
 
-	$rankPoint.map(function(index, elem) {
-		return {
-		  container: elem,
-		  rank: parseInt($(elem).text())
-	}})
-	  .each(function(index, el) {
-		  var color = getColor(el.rank);
-		  $(el.container).css({
-		    'background-color': color,
-		  });
+	$rankPoint.map(function (index, elem) {
+	  return {
+	    container: elem,
+	    rank: parseInt($(elem).text())
+	  };
+	}).each(function (index, el) {
+	  var color = getColor(el.rank);
+	  $(el.container).css({
+	    'background-color': color
 	  });
+	});
 
-	$(".rank_area .dbd_icon-star").each(function(index, el) {
-	  $(el).on('click',function(){
+	$(".rank_area .dbd_icon-star").each(function (index, el) {
+	  $(el).on('click', function () {
 	    var count;
-	  	$(this).addClass('dbd_selected');
-	  	$(this).prevAll().addClass('dbd_selected');
-	  	$(this).nextAll().removeClass('dbd_selected');
+	    $(this).addClass('dbd_selected');
+	    $(this).prevAll().addClass('dbd_selected');
+	    $(this).nextAll().removeClass('dbd_selected');
 
 	    count = parseInt(getCount.call($(this)));
 
 	    $('#comment_rank').val(count);
-	  })
+	  });
 	});
 
 /***/ }
