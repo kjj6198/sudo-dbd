@@ -12,4 +12,8 @@ class FrontendController < ApplicationController
   def about
 	
   end
+
+  def histroy
+    @orders = current_user.orders
+  end
 end

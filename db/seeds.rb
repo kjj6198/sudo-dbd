@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-for i in 1..10
+10.times do 
 	@rest = Restaurant.new
-	@rest.name = 'abc'
-	@rest.phone = '0925'
-	@rest.url = "111"
+	@rest.name = '好吃滷肉飯'
+	@rest.phone = '02-24566788'
+	@rest.url = "www.facebook.com"
 	@rest.save
 end

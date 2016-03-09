@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'frontend#index'
   get '/about', :controller => :frontend, :action => 'about'
+  get '/histroy', :to => 'frontend#histroy'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   

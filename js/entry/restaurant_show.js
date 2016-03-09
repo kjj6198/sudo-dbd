@@ -4,7 +4,6 @@ var DEFAULT_RANK = 0;
 var rankInput = document.getElementById('comment_rank');
 rankInput.value = DEFAULT_RANK;
 
-
 var $rankPoint = $(".rank");
 
 function getColor(number) {
@@ -30,11 +29,12 @@ $rankPoint.map(function(index, elem) {
 
 $(".rank_area .dbd_icon-star").each(function(index, el) {
   $(el).on('click',function(){
-    var count = parseInt(getCount.call($(this))) || 0;
-
+    var count;
   	$(this).addClass('dbd_selected');
   	$(this).prevAll().addClass('dbd_selected');
   	$(this).nextAll().removeClass('dbd_selected');
+
+    count = parseInt(getCount.call($(this)));
 
     $('#comment_rank').val(count);
   })

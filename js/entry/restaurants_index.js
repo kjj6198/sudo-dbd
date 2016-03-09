@@ -3,7 +3,7 @@ $(document).ready(function(){
     $('.modal-trigger').leanModal();
 });
 
-$restaurants = $('.rank_area');
+var $restaurants = $('.rank_area');
 
 $.each($restaurants, function(index, val) {
   var amount = parseInt($(this).data("rank"));

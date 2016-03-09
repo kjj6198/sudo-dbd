@@ -10,12 +10,18 @@ module.exports = {
     about: './js/entry/about.js',
     menu_bill: './js/entry/menu_bill.js',
     restaurant_show: './js/entry/restaurant_show.js',
-    order_new: './js/entry/order_new.js'
+    order_new: './js/entry/order_new.js',
+    histroy: './js/entry/histroy.js'
   },
   output: {
     path: path.join(__dirname, 'app', 'assets', 'javascripts', 'bundle'),
     filename: '[name]_bundle.js',
     publicPath: '/js/'
+  },
+  module: {
+    loaders: [
+      { test: /\.js$/, loader:'babel-loader' },
+    ]
   },
   plugins: [
     new webpack.ResolverPlugin(
