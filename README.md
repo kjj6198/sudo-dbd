@@ -5,11 +5,11 @@
 
 ### Why DBD
 
-[Slides](http://www.slideshare.net/dennyku1/sdbd-52472582)
+[Slides By Denny](http://www.slideshare.net/dennyku1/sdbd-52472582)
 
 1. 新增餐廳，並能夠為餐廳評價，自己的公司將會有自己的美食地圖
 2. 每次都有人拖很久才訂餐？每筆訂單將有倒數計時機制，訂便當的人最大！
-3. 對訂餐者友善的介面，找錢、付款，統一在訂單上操作。事後才不會忘記收錢
+3. 對訂餐者友善的介面，找錢、付款，還是公司買單？統一在訂單上操作，再也不會忘記收錢。
 4. 每個使用者將有自己的介面紀錄每月花費
 5. slack 上加入訂便當機器人
 
@@ -31,6 +31,7 @@
 ![demo1](./demo/demo1.png)
 ![demo2](./demo/demo2.png)
 ![demo3](./demo/demo3.png)
+![demo4](./demo/demo4.png)
 
 
 ## Thanks
